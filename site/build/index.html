@@ -2,36 +2,368 @@
 <html lang="en">
 
 <head>
+   <title>Template</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Template</title>
+   
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Chathura&display=swap" rel="stylesheet"> 
+   
    <link rel="stylesheet" href="css/style.min.css">
+   
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css ">
 </head>
 
 <body>
    <div class="wrapper">
-      <header class="header">
-          <div class="header__logo">
-              LOGO
+      <div class="navigation-wrapper">
+          <div class="navigation-top layout">
+              <div class="navigation-top__item">
+                  <div class="navigation-top__item__bg"></div>
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <a href="tel:+380442219189">+38 (044) 221-91-89</a>
+              </div>
+              <div class="navigation-top__item">
+                  <div class="navigation-top__item__bg"></div>
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  <a href="mailto:">energougalyans@ukr.net</a>
+              </div>
+              <div class="navigation-top__item lang">
+                  <div class="navigation-top__item__bg"></div>
+                  <a href="#">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYvz69T8DAvz79w9CQVj/0MCffwwAAcQClObiAin6/x+okxHMgPCAbOb//5n+I4EXL74ABBALxGSwagTjPzbAyMgItAQggBg9Pf9nZPx//x7kjL9////9C2QAyf9//qCQQCQkxFhY+BEggFi2b/+nq8v46BEDSPQ3w+8//3//BqFfv9BJeXmQEwACCOSkP38YgHy4Bog0RN0vIOMXVOTPH6Cv/gEEEEgDxFKgHEgDXCmGDUAE1AAQQCybGZg1f/d8//XsH0jTn3+///z79RtE/v4NZfz68xfI/vOX+4/0ZoZFAAHE4gYMvD+3/v2+h91wCANo9Z+/jH9VxBkYAAKIBRg9TL//MEhKAuWAogxgZzGC2CCfgUggAoYdGAEVAwQQ41egu5AQAyoXTQoIAAIMAD+JZR7YOGEWAAAAAElFTkSuQmCC" title="RU" alt="RU" width="16" height="11">
+                      RU
+                  </a>
+                  <a href="#">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFQSURBVHjaYmRo/c8AB//+MfwBkgwg8s8/KPoFI4GIgQEgAIdycgMACAMxUAF6oygqoQ1q45dkzSH5N26XR/8zCEuepggsVEPFkxB+S9bcRwCxMDCBVD/5+h+o9O8/BqDE378Mv/+DpCGKfgERmCHLw8jw4x9AAIFs+AdUBLQWZDZI9a/////8BSuFawBzf/8FuQMggFiALvsLsh2k+g/cbCTVUBLkKgaGDwwAAcTCIHJKhFPh19+fIHf/+/cbpBNI/gO75x+I/RfKluFiY5A6AhBAjH8fMjDI5P///+A/wy8GoFf/A+34hZVkYlJ6f/wUQACxAEOSESwEDEhURSiqwbJ/gKENEEAgDcwgDlAIrgiLNgaGvyD0hwEggEAamP4DdUrCREE6GRl/gyMPQv6BqgYG+z8GgABi/HoTFL///kBJBjgbwmBAcEEcBgaAAAMASIdu6OFHDhsAAAAASUVORK5CYII=" title="UA" alt="UA" width="16" height="11">
+                      UA
+                  </a>
+              </div>
           </div>
       
-          <div class="header-content-right">
-              <a href="#" class="header-link active">Link</a>
-              <a href="#" class="header-link">Link</a>
-              <a href="#" class="header-link">Link</a>
+        <nav class="navigation layout">
+          <div class="navigation__logo">
+              <img src="/images/logo.png" alt="Logo" />
+              <span>ЕНЕРГОЮГ АЛЬЯНС</span>
           </div>
-      </header>
-   
-      <div class="page-content">
-         Site TEMPLATE
+      
+          <div class="navigation-content-right">
+            <a href="#" class="navigation-link active">
+                <span>Главная</span>
+            </a>
+            <a href="#" class="navigation-link">
+                <span>Услуги</span>
+            </a>
+            <a href="#" class="navigation-link">
+                <span>Портфолио</span>
+            </a>
+            <a href="#" class="navigation-link">
+                <span>О Компании</span>
+            </a>
+            <a href="#" class="navigation-link">
+                <span>Контакты</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+      
+      <div class="page-header">
+         <div class="page-header__bg"></div>
+         <video 
+            class="video"
+            preload="auto" 
+            autoplay="autoplay" 
+            loop="loop" 
+            muted="muted" 
+            width="100%" 
+            height="500px">
+               Sorry, your browser doesn't support embedded videos,
+               but don't worry, you can <a href="videos/main-video.mp4">download it</a>
+               and watch it with your favorite video player!
+               <source src="videos/main-video.mp4" type="video/mp4">
+               <!-- <source src="bg/daisy-stock-webm-video.webm" type="video/webm"> -->
+         </video>
+         <div class="page-header-inner">
+            <h1>ЕНЕРГОЮГ АЛЬЯНС</h1>
+            <div class="page-header__subtitle">Первая инжиниринговая компания, которая предоставляет СЕРВИС!</div>
+            <div class="page-header-btns">
+               <a href="#" class="page-header__btn">Контакты</a>
+               <a href="#" class="page-header__btn">О Компании</a>
+            </div>
+         </div>
+      </div>
+
+      <div class="page-content layout">
+         <section class="services-block">
+             <h2 class="section-title">НАШИ <span class="text-blue">УСЛУГИ</span></h2>
+             <div class="services">
+                 <a class="services-item" href="#">
+                     <img src="images/services/service-1.png" alt="Электромонтажные работы">
+                     <h3>
+                         Электромонтажные <br> 
+                         работы
+                     </h3>
+                 </a>
+         
+                 <a class="services-item" href="#">
+                     <img src="images/services/service-2.png" alt="Аварийные работы">
+                     <h3>
+                         Аварийные <br> 
+                         работы
+                     </h3>
+                 </a>
+         
+                 <a class="services-item" href="#">
+                     <img src="images/services/service-3.png" alt="Электротехническая лаборатория">
+                     <h3>
+                         Электротехническая <br>
+                         лаборатория
+                     </h3>
+                 </a>
+         
+                 <a class="services-item" href="#">
+                     <img src="images/services/service-4.png" alt="Ремонт и обслуживание электросетей">
+                     <h3>
+                         Ремонт и обслуживание <br>
+                         электросетей
+                     </h3>
+                 </a>
+         
+                 <a class="services-item" href="#">
+                     <img src="images/services/service-5.png" alt="Проектные работы">
+                     <h3>
+                         Проектные <br> 
+                         работы
+                     </h3>
+                 </a>
+         
+                 <a class="services-item" href="#">
+                     <img src="images/services/service-6.png" alt="Поставка материалов и оборудования">
+                     <h3>
+                         Поставка материалов <br> 
+                         и оборудования
+                     </h3>
+                 </a>
+             </div>
+         </section>
+
+         <section class="about row">
+            <div class="left">
+               <em>О компании</em>
+               <h2 class="section-title">ЕНЕРГОЮГ <span class="text-blue">АЛЬЯНС</span></h2>
+               <div>
+                  При создании компании ЕНЕРГОЮГ АЛЬЯНС ставили цель <br>
+                  стать надежным помощником в энергетике для всех <br>
+                  потребителей. Именно поэтому, приоритетным направлением <br>
+                  деятельности нашей компании является обеспечение наших <br>
+                  Заказчиков комплексными решениями в электроэнергетике и <br>
+                  современными…
+               </div>
+               <a href="#" class="btn">ПОДРОБНЕЕ</a>
+            </div>
+            <div class="right illustration">
+               <img src="/images/about.png" alt="">
+            </div>
+         </section>
+
+      </div>
+
+      <div class="advantages-block">
+         <img src="/images/advantages.png" alt="Advantages" class="illustration" />
+         <div class="advantages-block-content">
+            <h2 class="advantages-block__title">
+               НАШИ ПРЕИМУЩЕСТВА
+            </h2>
+            <div class="advantages-block-list">
+               <div class="advantages-block__item">
+                  <img src="images/advantages/advantages_1.png" alt="Более 500 довольных клиентов">
+                  <div>
+                     Более 500 довольных клиентов
+                  </div>
+               </div>
+
+               <div class="advantages-block__item">
+                  <img src="images/advantages/advantages_2.png" alt="Работаем 5 лет на рынке">
+                  <div>
+                     Работаем 5 лет на рынке
+                  </div>
+               </div>
+
+               <div class="advantages-block__item">
+                  <img src="images/advantages/advantages_3.png" alt="Оперативный выезд и просчет">
+                  <div>
+                     Оперативный выезд и просчет
+                  </div>
+               </div>
+
+               <div class="advantages-block__item">
+                  <img src="images/advantages/advantages_4.png" alt="Опытный и обученный персонал">
+                  <div>
+                     Опытный и обученный персонал
+                  </div>
+               </div>
+
+               <div class="advantages-block__item">
+                  <img src="images/advantages/advantages_5.png" alt="Гарантия на выполненные работы">
+                  <div>
+                     Гарантия на выполненные работы
+                  </div>
+               </div>
+
+               <div class="advantages-block__item">
+                  <img src="images/advantages/advantages_6.png" alt="Наличие разрешительной документации">
+                  <div>
+                     Наличие разрешительной документации
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="page-content layout">
+         <section>
+            <h2 class="section-title" style="text-align:center;">
+               НАШИ <span class="text-blue">КЛИЕНТЫ</span>
+            </h2>
+         </section>
+
+         <div class="owl-carousel partners-carousel owl-theme">
+             <div> 
+                 <img src="/images/partners/partner_1.jpg" alt="ВДНX"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_2.jpg" alt="Жуляны"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_3.jpg" alt="DATA Group"> 
+             </div>
+         
+             <div> 
+                 <img src="/images/partners/partner_4.jpg" alt="BioFarma"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_5.jpg" alt="ABInBev"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_6.jpg" alt="Акко"> 
+             </div>
+         
+             <div> 
+                 <img src="/images/partners/partner_7.jpg" alt="CompassFM"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_8.jpg" alt="Dyckerhoff Ukraine"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_9.jpg" alt="Зоопарк Киев"> 
+             </div>
+         
+             <div> 
+                 <img src="/images/partners/partner_10.jpg" alt="OTIS"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_11.jpg" alt="Киянка"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_12.jpg" alt="НАУ"> 
+             </div>
+         
+             <div> 
+                 <img src="/images/partners/partner_13.jpg" alt="Мармелад"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_14.jpg" alt="Ukrspecexports"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_15.jpg" alt="Eurasia"> 
+             </div>
+             <div> 
+                 <img src="/images/partners/partner_16.jpg" alt="PRIME"> 
+             </div>
+         </div>
+         <div class="owl-carousel licenses-carousel owl-theme">
+             <div class="item"> 
+                 <img src="/images/license/license_1_full.jpg" class="item_preview" alt="license 1"> 
+                 
+             </div>
+         
+             <div class="item"> 
+                 <img src="/images/license/license_2_full.jpg" class="item_preview" alt="license 1"> 
+             </div>
+         
+             <div class="item"> 
+                 <img src="/images/license/license_3_full.png" class="item_preview" alt="license 2"> 
+             </div>
+         
+             <div class="item"> 
+                 <img src="/images/license/license_4_full.jpg" class="item_preview" alt="license 2"> 
+             </div>
+         </div>
+         
+         <div class="license_full" style="display: none;">
+             <img src="/images/license/license_1_full.jpg" alt="license 1" />
+         </div>
+
+         <div class="feedback-form">
+             <iframe class="feedback-form-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.07799856202!2d30.4459020128288!3d50.43964780348864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ceb8258c9a7f%3A0x5da419b890e6c424!2z0JXQndCV0KDQk9CeINCu0JMg0JDQm9Cs0K_QndChIC0g0LXQu9C10LrRgtGA0L7QvNC-0L3RgtCw0LYsINC10LvQtdC60YLRgNC-0LvQsNCx0L7RgNCw0YLQvtGA0ZbRjywg0YDQtdC80L7QvdGCINGC0LAg0YLQtdGF0L3RltGH0L3QtSDQvtCx0YHQu9GD0LPQvtCy0YPQstCw0L3QvdGP!5e0!3m2!1sru!2sua!4v1610838621150!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+             <form action="">
+                 <em>Возникли вопросы?</em>
+                 <h2 class="form-title">СВЯЖИТЕСЬ С <span class="text-blue">НАМИ</span></h2>
+         
+                 <input type="text" name="name" required max="30" placeholder="Ваше имя" />
+                 <br>
+                 <input type="tel" name="phone" placeholder="Ваш телефон" required />
+         
+                 <button class="btn">ОТПРАВИТЬ</и>
+             </form>
+         </div>
+         
       </div>
 
       <footer class="footer">
-          <h3>Footer info</h3>
+          <div class="footer-section">
+              Понедельник — Пятница : 08:00 — 19:00
+              <br>
+              <br>
+              +38(050) 658-27-77
+              <br>
+              +38(097) 308-18-31
+              <br>
+              <br>
+              <br>
+              <br>
+              <a href="#"><b><em>Положення про обробку і захист персональних даних</em></b></a>
+          </div>
+          <div class="footer-section">
+              03056, м.Київ, вул. Вадима Гетьмана, 27, офіс 33
+              <br>
+              <br>
+              energougalyans@ukr.net
+              +38 (044) 221-91-89
+          </div>
+          <div class="footer-section">
+              <div class="footer-logo">
+                  <img src="/images/logo_white.png" width="62" alt="logo">
+                  <br>
+                  <b>ЕНЕРГОЮГ АЛЬЯНС</b>
+                  <br>
+                  НАДІЙНИЙ ПАРТНЕР В ЕНЕРГЕТИЦІ
+              </div>
+          </div>
       </footer>
+      <footer class="footer-bottom">
+          <div>Copyright © All rights reserved.</div>
+          <div>ЕНЕРГОЮГАЛЬЯНС</div>
+      </footer>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <script src="js/main.js"></script>
    </div>
-   
-   <script src="js/main.js"></script>
 </body>
 
 </html>

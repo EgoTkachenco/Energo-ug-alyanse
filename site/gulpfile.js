@@ -18,6 +18,7 @@ const path = {
     js: "build/js/",
     css: "build/css/",
     img: "build/images/",
+    video: "build/videos/",
     fonts: "build/fonts",
   },
   src: {
@@ -25,6 +26,7 @@ const path = {
     js: "src/js/*.js",
     style: "src/scss/*.scss",
     img: "src/images/**/*.{jpg,jpeg,png}",
+    video: "src/videos/*.*",
     fonts: "src/fonts/**/*.*",
   },
   watch: {
@@ -32,6 +34,7 @@ const path = {
     js: "src/js/**/*.js",
     style: "src/scss/**/*.{scss,css}",
     img: "src/images/**/*.*",
+    video: "src/videos/**/*.*",
     fonts: "src/fonts/**/*.*",
   },
   clean: "./build",
@@ -57,6 +60,12 @@ gulp.task("html:build", function () {
 
 // Cборка JS
 gulp.task("js:build", function () {
+  gulp
+    .src(path.src.js)
+    .pipe(uglify()) //минификация JS файла
+    .pipe(gulp.dest(path.build.js))
+    .pipe(reload({ stream: true })); //перезагружаем сервер
+  
   gulp
     .src(path.src.js)
     .pipe(rigger())
@@ -93,7 +102,7 @@ gulp.task("image:build", function () {
       imagemin([
         imagemin.gifsicle({ interlaced: true }),
         imagemin.mozjpeg({ quality: 75, progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
+        imagemin.optipng({ optimizationLevel: 2 }),
         imagemin.svgo({
           plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
         }),
@@ -103,9 +112,15 @@ gulp.task("image:build", function () {
     .pipe(reload({ stream: true })); //перезагружаем сервер
 });
 
+gulp.task("video:build", function () {
+  gulp.src(path.src.video).pipe(gulp.dest(path.build.video)); //видео просто копируем
+
+});
+
 gulp.task("fonts:build", function () {
   gulp.src(path.src.fonts).pipe(gulp.dest(path.build.fonts)); //шрифты просто копируем
 });
+
 
 // ЗАДАЧА: Собрать проект
 gulp.task(
@@ -114,8 +129,9 @@ gulp.task(
     "html:build",
     "style:build",
     "js:build",
-    "fonts:build",
-    "image:build"
+    "video:build",
+    "image:build",
+    "fonts:build"
   )
 );
 
@@ -124,6 +140,7 @@ gulp.task("watch", function () {
   watch([path.watch.html], gulp.parallel("html:build"));
   watch([path.watch.style], gulp.parallel("style:build"));
   watch([path.watch.js], gulp.parallel("js:build"));
+  watch([path.watch.video], gulp.parallel("video:build"));
   watch([path.watch.img], gulp.parallel("image:build"));
   watch([path.watch.fonts], gulp.parallel("fonts:build"));
 });

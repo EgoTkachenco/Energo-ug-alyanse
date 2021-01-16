@@ -1,0 +1,30 @@
+.feedback-form {
+    display: flex;
+    max-width: 1920px;
+    align-items: center;
+
+    .form-title {
+      position: relative;
+
+      &:after {
+        content: "";
+        border: 1px solid #5791be;
+        width: 7%;
+        height: 0;
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+      }
+    }
+    form {
+        margin-left: $s-4;
+    }
+    input {
+        padding: $s-1 $s-2;
+    }
+    input, button {
+        margin-top: $s-3;
+    }
+
+
+}
