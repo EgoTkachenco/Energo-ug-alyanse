@@ -1,0 +1,25 @@
+@import "settings/global";
+
+@import "design-tokens/colors", 
+        "design-tokens/fonts",
+        "design-tokens/media-queries", 
+        "design-tokens/spacing",
+        "design-tokens/typography";
+
+@import "elements/_style";
+
+body {
+  font-family: $regularFont;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  margin: 100px 12.5%;
+  text-align: center;
+  flex: 1 1;
+}
