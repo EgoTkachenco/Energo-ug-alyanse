@@ -41,4 +41,24 @@ $(document).ready(function () {
 	$(".license_full").on('click', function (e) {
 		$(".license_full").css('display', "none");
 	});
+
+	document.onscroll = handleScroll;
+
+	$('.feedback-form button').on('click', function (e) {
+		e.preventDefault();
+		console.log('Form')
+	});
 });
+
+let navigationHideTop = false;
+
+function handleScroll(e) {
+	if (!navigationHideTop && window.scrollY > 0) {
+		document.querySelector(".navigation-wrapper").classList.add('hide-top');
+		navigationHideTop = true;
+	}
+	if (navigationHideTop && window.scrollY === 0) {
+		document.querySelector(".navigation-wrapper").classList.remove('hide-top');
+		navigationHideTop = false;
+	}
+}
