@@ -1,0 +1,46 @@
+<template>
+    <div>
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-12">
+                    <h2 class="block-title mb-4">{{service.name}}</h2>
+                </div>
+                <div class="col-12 col-md-4 mt-3" v-for="(job, id) in service.jobs" :key="job.name">
+                    <Nuxt-link class="service-link" :to="`${service.url}/${id}`">
+                        <img :src="require(`~/assets/images/${job.images[0]}`)" :alt="job.name" />
+                        <div>{{job.name}}</div>
+                    </Nuxt-link>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    computed: {
+        service() {
+            let service = {...this.$store.state.services[this.$route.params.id]};
+            let jobs = {}
+            service.jobs.forEach(id => {
+                jobs[id] = this.$store.state.jobs[id];
+            })
+            service.jobs = jobs;
+            return service;
+        }
+    }
+}
+</script>
+
+<style lang="scss">
+.service-link {
+    text-decoration: none;
+    text-align: center;
+    color: $c-dark-grey;
+    transition: all 0.5s;
+    &:hover {
+        text-decoration: none;
+        color: $c-blue;
+    }
+}
+</style>
