@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <section class="row services py-5">
     <div class="col-12 mb-4">
-      <div><h2 class="text-center">НАШИ УСЛУГИ</h2></div>
+      <div><h2 class="text-center">{{ $t('servicesBlock.title') }}</h2></div>
     </div>
     <div class="col-12 col-md-6 col-lg-4" v-for="(service, id) in services" :key="id">
       <Nuxt-link class="services-item" :to="service.url">
@@ -11,7 +11,7 @@
           :src="require(`~/assets/icons/${service.icon}-icon.svg`)"
           :alt="service.name"
         />
-        <h3 class="mt-2 px-5" v-html="service.name"></h3>
+        <h3 class="mt-2 px-5">{{ $t(`servicesBlock.${id}`) }}</h3>
       </Nuxt-link>
     </div>
   </section>

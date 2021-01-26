@@ -18,9 +18,9 @@
         class="col-12 col-md-6 order-1 order-md-2 py-5 d-flex flex-column justify-content-center"
       >
         <form @submit="handleForm($event)" v-if="!isSubmited">
-          <em>Возникли вопросы?</em>
+          <em>{{ $t('formBlock.questions')}}</em>
           <h2 class="form-title">
-            СВЯЖИТЕСЬ С <span class="text-blue">НАМИ</span>
+            {{ $t('formBlock.feedback')}}
           </h2>
 
           <input
@@ -29,18 +29,18 @@
             name="name"
             required
             max="30"
-            placeholder="Ваше имя"
+            :placeholder="$t('formBlock.name')"
           />
           <br />
           <input
             class="form-control"
             type="tel"
             name="phone"
-            placeholder="Ваш телефон"
+            :placeholder="$t('formBlock.phone')"
             required
           />
 
-          <button class="btn btn-warning">ОТПРАВИТЬ</button>
+          <button class="btn btn-warning">{{ $t('formBlock.submit') }}</button>
         </form>
 
         <div class="display-4 text-center" v-else>

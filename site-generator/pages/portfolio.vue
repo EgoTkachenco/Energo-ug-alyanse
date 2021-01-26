@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mt-4">
+    <div class="container py-5">
       <div class="row">
         <div class="col-12 col-md-4" v-for="item in portfolio">
           <div

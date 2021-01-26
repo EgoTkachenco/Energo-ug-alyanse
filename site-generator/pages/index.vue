@@ -18,11 +18,11 @@
       </video>
       <div class="page-header-inner">
          <div class="flex-grow-1"></div>   
-         <h1 class="animate__animated animate__fadeIn animate__delay-1s">ЕНЕРГО ЮГ АЛЬЯНС</h1>
-         <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s">Первая инжиниринговая компания, которая предоставляет СЕРВИС!</div>
+         <h1 class="animate__animated animate__fadeIn animate__delay-1s">{{ $t('company')}}</h1>
+         <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s">{{ $t('slogan')}}</div>
          <div class="page-header-btns animate__animated animate__fadeIn animate__delay-3s">
-            <a href="#" class="btn btn-outline-light btn-lg">Контакты</a>
-            <a href="#" class="btn btn-outline-light btn-lg ml-5">О Компании</a>
+            <a href="#" class="btn btn-outline-light btn-lg">{{ $t('navigation.contacts')}}</a>
+            <a href="#" class="btn btn-outline-light btn-lg ml-5">{{ $t('navigation.about')}}</a>
          </div>
       </div>
    </div>
@@ -32,22 +32,18 @@
    <div class="page-content layout py-4">
       <section class="row d-flex align-items-center">
          <div class="col-12 col-md-7 text-center text-md-left order-2 order-md-1">
-            <em>О компании</em>
-            <h2 class="block-title left mt-3">ЕНЕРГОЮГ <span class="text-blue">АЛЬЯНС</span></h2>
+            <em>{{ $t('aboutBlock.title') }}</em>
+            <h2 class="block-title left mt-3">{{ $t('company') }}</span></h2>
             <div class="mt-5" style="line-height: 1.5rem">
-               При создании компании ЕНЕРГОЮГ АЛЬЯНС ставили цель 
-               стать надежным помощником в энергетике для всех потребителей. 
+               {{ $t('aboutBlock.content_1') }}
                <br><br>
-               Именно поэтому, приоритетным направлением 
-               деятельности нашей компании является обеспечение наших 
-               Заказчиков комплексными решениями в электроэнергетике и 
-               современными…
+               {{ $t('aboutBlock.content_2') }}
             </div>
             <a href="#" class="btn btn-secondary mt-5 mx-auto mx-md-0">Подробнее</a>
          </div>
          <div class="col-12 col-md-5 order-1 order-md-2">
             <div class="about-image">
-               <img src="~/assets/images/about.jpg" alt="О Нас">
+               <img src="~/assets/images/about.jpg" :alt="$t('aboutBlock.title')">
             </div>
          </div>
       </section>

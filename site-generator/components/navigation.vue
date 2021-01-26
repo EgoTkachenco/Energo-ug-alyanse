@@ -45,15 +45,15 @@
     <nav class="navigation layout">
       <NuxtLink to="/" class="navigation__logo">
         <img src="~/assets/images/logo.svg" alt="Logo" />
-        <span>ЕНЕРГО ЮГ АЛЬЯНС</span>
+        <span>{{ $t('company')}}</span>
       </NuxtLink>
 
       <div class="navigation-content-right">
         <NuxtLink to="/" class="navigation-link active">
-          Главная
+          {{ $t('navigation.home')}}
         </NuxtLink>
         <div class="navigation-link dropdown">
-          Услуги
+          {{ $t('navigation.services')}}
 
           <div class="dropdown__inner">
             <div class="service-category" :key="c.title + i" v-for="(c, i) in categories">
@@ -69,13 +69,13 @@
           </div>
         </div>
         <NuxtLink to="/portfolio" class="navigation-link">
-          Портфолио
+          {{ $t('navigation.portfolio')}}
         </NuxtLink>
         <NuxtLink to="/about-business-point" class="navigation-link">
-          О Компании
+          {{ $t('navigation.about')}}
         </NuxtLink>
         <NuxtLink to="/contacts" class="navigation-link">
-          Контакты
+          {{ $t('navigation.contacts')}}
         </NuxtLink>
       </div>
       <button class="navigation-mobile-btn">
@@ -144,24 +144,20 @@ export default {
   }),
   watch: {
     $route(to, from) {
-      this.handleRouteChange()
+      // Alternative navigation
+      this.isBackground = this.pagesWithBackground.includes(to.name);
     },
   },
   mounted() {
-    console.log(123)
-    if (process.client) {
+    if(process && process.client) {
       window.onscroll = this.handleScroll
       if (window.scrollY > 0) this.navigationHideTop = true
-      this.handleRouteChange()
+      this.isBackground = this.pagesWithBackground.includes(this.$route.name);
     }
   },
   methods: {
     scrollTop() {
-      window.scrollTo(0, 0)
-    },
-    handleRouteChange() {
-      let page = this.$route.name;
-      this.isBackground = this.pagesWithBackground.includes(page);
+      window.scrollTo(0, 0);
     },
     handleScroll(e) {
       console.log(this.$route.name)

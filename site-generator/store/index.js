@@ -82,7 +82,6 @@ const state = () => ({
                         </ul>                     
                     `
         },
-
         'montazh-vnutr-elektrosetei': {
             name: 'Монтаж внутренних электросетей',
             images: [
@@ -113,8 +112,6 @@ const state = () => ({
                 'Kabelshchik.jpg'
             ],
         },
-
-
     },
     portfolio: [
         {
