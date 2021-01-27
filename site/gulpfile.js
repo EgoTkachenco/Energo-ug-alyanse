@@ -157,3 +157,6 @@ gulp.task("clean", function () {
 
 // Сборка проекта командой gulp
 gulp.task("default", gulp.parallel("clean", "build", "webserver", "watch"));
+
+
+// e49fd375987da823a9055c8337266bd5aae0f05a
