@@ -4,31 +4,31 @@ const state = () => ({
             name: 'Электромонтажные работы',
             icon: 'power-tower',
             url: '/services/avariynye-raboty',
-            jobs: ['remont-kl', 'remont-kl']
+            jobs: ['remont-kl', 'avarijnyj-remont']
         },
         'avariynye-raboty': {
             name: 'Аварийные работы',
             icon: 'electrical-sign',
             url: '/services/avariynye-raboty',
-            jobs: ['montazh-vnutr-elektrosetei', 'montag-vneshnikh-setei', 'elektroschit', 'bliskavkozakhist']
+            jobs: ['montazh-vnutr-elektrosetei', 'montag-vneshnikh-setei', 'prokladka-kabelnih-liniy', 'elektroschit', 'bliskavkozakhist']
         },
         'elektrotehnicheskaya-laboratoriya': {
             name: 'Электротехническая лаборатория',
             icon: 'multimeter',
             url: '/services/elektrotehnicheskaya-laboratoriya',
-            jobs: ['remont-kl']
+            jobs: ['etl-04kv', 'etl-10kv']
         },
         'remont-i-obslyzhuvanie': {
             name: 'Ремонт и обслуживание электросетей',
             icon: 'transformer',
             url: '/services/remont-i-obslyzhuvanie',
-            jobs: ['remont-kl']
+            jobs: ['obsluzhivanie', 'remont-i-obsluzhivanie-silovyh-transformatorov', 'remont-oborudovaniya-transformatornyh-podstanciy', 'remont-elektroshhitov']
         },
         'proektnye-raboty': {
             name: 'Проектные работы',
             icon: 'house',
             url: '/services/proektnye-raboty',
-            jobs: ['remont-kl']
+            jobs: ['proektnye-raboty']
         },
 
         // Поставка Проекти и аудит 3 категории  3 работы -> Сделать 1 категорию Другое 3 работи  ??? 
@@ -36,30 +36,18 @@ const state = () => ({
             name: 'Поставка материалов и оборудования',
             icon: 'coal',
             url: '/services/postavka',
-            jobs: ['remont-kl']
+            jobs: ['postavka']
         },
     },
     jobs: {
+        // Id / serviceId / images / recomendations
         'remont-kl': {
-            name: 'Ремонт кабельных линий',
+            id: 'remont-kl',
+            serviceId: 'elektromontazhnye-raboty',
             images: [
                 'Kabelshchik.jpg'
             ],
-            description: `
-                        Специалисты компании ЕНЕРГОЮГ АЛЬЯНС проводят весь комплекс работ по ремонту кабельных линий 0,4 и 10 кВ, с использованием собственных материалов, установок и оборудования.
-                        <br /><br />
-                        Заказывая работы по ремонту КЛ у нас, Вы можете быть уверены, что получите качественные услуги и восстановление надежного электроснабжения в кратчайшие сроки.
-                        <br> 
-                        <b>Ремонт кабельных линий проводится путем выполнения следующих работ:</b>
-                        <ul>
-                            <li>оперативный выезд электролаборатории для поиска места повреждения — срок реагирования в пределах двух часов</li>
-                            <li>согласование с энергоснабжающей компанией вопросов отключения и включения КЛ (снятие и установка пломб, при необходимости)</li>
-                            <li>выполнение работ по ремонту КЛ (земляные работы, замена поврежденного участка, монтаж муфт)</li>
-                            <li>открытие аварийного ордера на временное нарушение благоустройства</li>
-                            <li>испытание кабельной линии после ремонта, оформление протоколов</li>
-                            <li>восстановление благоустройства (асфальтирование, установка ФЭМ и т.д.)</li>
-                        </ul>                     
-                    `
+            recomendations: []
         },
         'avarijnyj-remont': {
             name: 'Аварийный ремонт электросетей',
