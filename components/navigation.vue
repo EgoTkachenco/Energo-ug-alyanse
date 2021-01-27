@@ -374,7 +374,7 @@ export default {
   }
   }
   &.background {
-    background: url('~/assets/images/back.png') center;
+    background: url('~assets/images/back.png') center;
     background-size: cover;
     position: relative;
   }
