@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/services/avariynye-raboty/montazh-vnutr-elektrosetei", {data:[{}],fetch:[],mutations:[]});

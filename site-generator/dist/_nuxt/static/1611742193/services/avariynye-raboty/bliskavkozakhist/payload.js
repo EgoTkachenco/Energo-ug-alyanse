@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/services/avariynye-raboty/bliskavkozakhist", {data:[{}],fetch:[],mutations:[]});
