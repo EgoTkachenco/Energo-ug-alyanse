@@ -4,12 +4,7 @@ on: [push, pull_request]
 
 jobs:
   cd:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
+    runs-on: ubuntu-18.04
 
     steps:
       - name: Checkout
@@ -18,7 +13,7 @@ jobs:
       - name: Setup node env
         uses: actions/setup-node@v2.1.2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '12.x'
 
       - name: Install dependencies
         working-directory: ./site-generator
@@ -32,5 +27,5 @@ jobs:
         working-directory: ./site-generator
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: e49fd375987da823a9055c8337266bd5aae0f05a
           publish_dir: ./site-generator/dist
