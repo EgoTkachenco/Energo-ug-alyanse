@@ -23,8 +23,11 @@ jobs:
         working-directory: ./site-generator
         run: yarn run generate
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site-generator/dist
+      - name: Start
+        working-directory: ./site-generator
+        run: yarn run start
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./site-generator/dist
