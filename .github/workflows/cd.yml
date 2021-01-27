@@ -27,5 +27,5 @@ jobs:
         working-directory: ./site-generator
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: e49fd375987da823a9055c8337266bd5aae0f05a
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site-generator/dist
