@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/services/avariynye-raboty/prokladka-kabelnih-liniy", {data:[{}],fetch:[],mutations:[]});

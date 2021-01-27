@@ -1,7 +1,9 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-
+  router: {
+    base: 'https://egotkachenco.github.io/Energo-ug-alyanse/site-generator/dist/'
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'site-generator',
