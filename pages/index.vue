@@ -11,9 +11,9 @@
          width="100%" 
          height="500px">
             Sorry, your browser doesn't support embedded videos,
-            but don't worry, you can <a href="~assets/videos/PowerLines.mp4">download it</a>
+            but don't worry, you can <a href="~/assets/videos/PowerLines.mp4">download it</a>
             and watch it with your favorite video player!
-            <source src="~assets/videos/temp.mp4" type="video/mp4">
+            <source src="~/assets/videos/temp.mp4" type="video/mp4">
             <!-- <source src="bg/daisy-stock-webm-video.webm" type="video/webm"> -->
       </video>
       <div class="page-header-inner">
