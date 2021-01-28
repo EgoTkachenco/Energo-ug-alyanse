@@ -81,7 +81,7 @@ export default {
     pagesWithBackground: ['about-business-point___uk', 'services-id___uk', 'portfolio___uk'],
     categories: [],
     
-    isDropdownActive: false
+    isDropdownActive: false,
   }),
   async fetch() {
     let categories = [];
@@ -95,20 +95,17 @@ export default {
     $route(to, from) {
       // Alternative navigation
       this.isBackground = this.pagesWithBackground.includes(to.name);
-    },
+    }
   },
-  mounted() {
-    this.$nextTick(() => {
-      if(this.pagesWithBackground.includes(this.$route.name)) {
-        this.navigationHideTop = false;
-        this.isBackground = true;
-      } else {
-        if(window) {
-          window.onscroll = this.handleScroll;
-          if (window.scrollY > 0) this.navigationHideTop = true;
-        }
-      }
-    })
+  created() {
+   if(this.pagesWithBackground.includes(this.$route.name)) {
+      this.navigationHideTop = false;
+      this.isBackground = true;
+    }
+    if (process.browser){
+      window.onscroll = this.handleScroll;
+      if (window.scrollY > 0) this.navigationHideTop = true;
+    }
   },
   methods: {
     scrollTop() {
