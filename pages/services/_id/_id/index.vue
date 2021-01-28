@@ -5,14 +5,12 @@
       <img src="~/assets/images/job-back.png" class="video" alt="" />
 
       <div class="page-header-inner">
-        <div class="flex-grow-1"></div>
         <h1 class="animate__animated animate__fadeIn animate__delay-1s">
           {{ $t(`jobs.${jobId}.name`) }}
         </h1>
-        <div
-          class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s"
-          v-html="$t(`jobs.${jobId}.subtitle`)"
-        ></div>
+        <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s">
+          {{ $t(`jobs.${jobId}.subtitle`) }}
+        </div>
       </div>
     </div>
 
@@ -67,7 +65,7 @@
 
     <Reliability></Reliability>
 
-    <div class="layout">
+    <div class="layout py-5">
       <div class="row px-0">
         <div class="col-12">
           <h2 class="block-title mb-5">ВАМ БУДЕ ЦІКАВО</h2>
@@ -130,18 +128,30 @@
 </template>
 
 <script>
+import WorkSchema from '~/components/service/work-schema';
+import WhyWe from '~/components/service/why-we';
+import Reliability from '~/components/service/reliability';
+import PartnersCarousel from '~/components/partners-carousel';
+import FeedbackForm from '~/components/feedback-form';
 export default {
-  data: () => ({
-    job: null,
-    jobId: null,
-  }),
-  async fetch() {
-    this.jobId = this.$route.params.id
-    this.job = await this.$store.state.jobs[this.jobId]
+  components: {
+    WorkSchema,
+    WhyWe,
+    Reliability,
+    PartnersCarousel,
+    FeedbackForm,
+  },
+  computed: {
+    jobId() {
+      return this.$route.params.id;
+    },
+    job() {
+      return this.$store.state.jobs[this.jobId];
+    }
   },
 }
 </script>
-\
+
 <style lang="scss" scoped>
 .job-form {
   background: $c-blue-gradient;

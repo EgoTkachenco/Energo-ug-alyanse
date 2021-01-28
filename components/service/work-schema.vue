@@ -2,15 +2,12 @@
   <div class="layout">
     <div class="row justify-content-center py-5">
       <div class="col-12">
-        `
         <h2 class="block-title mb-5">{{ $t('schemas.title') }}</h2>
       </div>
       <div class="col schema-item">
         <img
           src="~/assets/icons/work-schema/customer-support.svg"
-          `
-          :alt="$t('schemas.support')"
-        />
+          :alt="$t('schemas.support')" />
         <div class="mt-3">
           {{ $t('schemas.support') }}
         </div>
@@ -19,7 +16,6 @@
       <div class="col schema-item">
         <img
           src="~/assets/icons/work-schema/car.svg"
-          `
           :alt="$t('schemas.car')"
         />
         <div class="mt-3">
@@ -30,7 +26,6 @@
       <div class="col schema-item">
         <img
           src="~/assets/icons/work-schema/contract.svg"
-          `
           :alt="$t('schemas.contract')"
         />
         <div class="mt-3">
@@ -41,7 +36,6 @@
       <div class="col schema-item">
         <img
           src="~/assets/icons/work-schema/power.svg"
-          `
           :alt="$t('schemas.work')"
         />
         <div class="mt-3">
@@ -52,8 +46,7 @@
       <div class="col schema-item">
         <img
           src="~/assets/icons/work-schema/deal.svg"
-          `
-          :alt="$t('schemas.finish')"
+            :alt="$t('schemas.finish')"
         />
         <div class="mt-3">
           {{ $t('schemas.finish') }}

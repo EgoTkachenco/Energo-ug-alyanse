@@ -43,55 +43,107 @@ const state = () => ({
             recomendations: []
         },
         'avarijnyj-remont': {
-            name: 'Аварийный ремонт электросетей',
+            serviceId: 'elektromontazhnye-raboty',
             images: [
                 'Kabelshchik.jpg'
             ],
-            description: `
-                        Специалисты компании ЕНЕРГОЮГ АЛЬЯНС проводят весь комплекс работ по ремонту кабельных линий 0,4 и 10 кВ, с использованием собственных материалов, установок и оборудования.
-                        <br /><br />
-                        Заказывая работы по ремонту КЛ у нас, Вы можете быть уверены, что получите качественные услуги и восстановление надежного электроснабжения в кратчайшие сроки.
-                        <br> 
-                        <b>Ремонт кабельных линий проводится путем выполнения следующих работ:</b>
-                        <ul>
-                            <li>оперативный выезд электролаборатории для поиска места повреждения — срок реагирования в пределах двух часов</li>
-                            <li>согласование с энергоснабжающей компанией вопросов отключения и включения КЛ (снятие и установка пломб, при необходимости)</li>
-                            <li>выполнение работ по ремонту КЛ (земляные работы, замена поврежденного участка, монтаж муфт)</li>
-                            <li>открытие аварийного ордера на временное нарушение благоустройства</li>
-                            <li>испытание кабельной линии после ремонта, оформление протоколов</li>
-                            <li>восстановление благоустройства (асфальтирование, установка ФЭМ и т.д.)</li>
-                        </ul>                     
-                    `
+            recomendations: []
         },
+            
         'montazh-vnutr-elektrosetei': {
-            name: 'Монтаж внутренних электросетей',
+            serviceId: 'avariynye-raboty',
             images: [
                 'Kabelshchik.jpg'
             ],
+            recomendations: []
         },
         'montag-vneshnikh-setei': {
-            name: 'Монтаж внешних электросетей',
+            serviceId: 'avariynye-raboty',
             images: [
                 'Kabelshchik.jpg'
             ],
+            recomendations: []
         },
         'prokladka-kabelnih-liniy': {
-            name: 'Прокладка кабельных линий',
+            serviceId: 'avariynye-raboty',
             images: [
                 'Kabelshchik.jpg'
             ],
+            recomendations: []
         },
         'elektroschit': {
-            name: 'Изготовление и монтаж электрощитового оборудования',
+            serviceId: 'avariynye-raboty',
             images: [
                 'Kabelshchik.jpg'
             ],
+            recomendations: []
         },
         'bliskavkozakhist': {
-            name: 'Молниезащита и заземление',
+            serviceId: 'avariynye-raboty',
             images: [
                 'Kabelshchik.jpg'
             ],
+            recomendations: []
+        },
+
+        'etl-04kv': {
+            serviceId: 'elektrotehnicheskaya-laboratoriya',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        },
+        'etl-10kv': {
+            serviceId: 'elektrotehnicheskaya-laboratoriya',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        },
+
+        'obsluzhivanie': {
+            serviceId: 'remont-i-obslyzhuvanie',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        },
+        'remont-i-obsluzhivanie-silovyh-transformatorov': {
+            serviceId: 'remont-i-obslyzhuvanie',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        },
+        'remont-oborudovaniya-transformatornyh-podstanciy': {
+            serviceId: 'remont-i-obslyzhuvanie',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        },
+        'remont-elektroshhitov': {
+            serviceId: 'remont-i-obslyzhuvanie',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        },
+
+        'proektnye-raboty': {
+            serviceId: 'proektnye-raboty',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        },
+
+        'postavka': {
+            serviceId: 'postavka',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
         },
     },
     portfolio: [
