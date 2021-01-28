@@ -11,7 +11,7 @@
           :src="require(`~/assets/icons/${service.icon}-icon.svg`)"
           :alt="service.name"
         />
-        <h3 class="mt-2 px-5">{{ $t(`servicesBlock.${id}`) }}</h3>
+        <h3 class="mt-2 px-5">{{ $t(`services.${id}`) }}</h3>
       </Nuxt-link>
     </div>
   </section>

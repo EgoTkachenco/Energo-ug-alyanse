@@ -36,6 +36,41 @@ export default {
     footer: {
 
     },
+    schemas: {
+        title: 'СХЕМА РОБОТИ',
+        support: 'Заявка на роботи',
+        car: 'Безкоштовний виїзд для прорахунку вартості робіт',
+        contract: 'Підписання договору',
+        work: 'Виконання робіт',
+        finish: 'Здача робіт'
+    },
+    partners: {
+        title: 'НАШІ КЛІЄНТИ'
+    },
+    whywe: {
+        title: 'Чому Вам варто звернутися до фахівців компанії ЕНЕРГО ЮГ АЛЬЯНС?'
+    },
+    reliability: {
+        title: 'ЧОМУ З НАМИ НАДІЙНО',
+
+        safety: 'Безпека',
+        safety_description: 'Наявність дозвільних документів. Виконання робіт відповідно діючих норм і правил',
+
+        personal: 'Персонал',
+        personal_description: 'Наш персонал має високу кваліфікацію',
+
+        operativnost: 'Оперативність',
+        operativnost_description: 'Прорахунок і виконання в короткі строки',
+
+        dovira: 'Нам довіряють',
+        dovira_description: 'Більше ніж 500 клієнтів вибрали нас',
+
+        guarantee: 'Гарантія',
+        guarantee_description: 'Гарантія на виконані роботи',
+
+        time: 'Зручний час',
+        time_description: 'Виконуємо роботи в зручний для вас час'
+    },
     services: {
         'elektromontazhnye-raboty': 'Електромонтажні роботи',
         'avariynye-raboty': 'Аварійні роботи',

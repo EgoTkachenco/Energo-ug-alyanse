@@ -1,5 +1,5 @@
 <template>
-  <div class="licenses-carousel">
+  <div class="layout py-5 licenses-carousel">
     <VueSlickCarousel v-bind="settings">
       <div
         class="item"

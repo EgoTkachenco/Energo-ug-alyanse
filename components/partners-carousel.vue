@@ -1,5 +1,8 @@
 <template>
-  <div class="partners-carousel">
+  <div class="layout py-5 partners-carousel">
+    <h2 class="block-title mb-4" style="text-align:center;">
+        {{ $t('partners.title') }}
+    </h2>
     <VueSlickCarousel v-bind="settings">
       <div>
         <img width="300" src="~/assets/images/partners/partner_1.jpg" alt="ВДНX" />

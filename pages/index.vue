@@ -22,7 +22,7 @@
          <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s">{{ $t('slogan')}}</div>
          <div class="page-header-btns animate__animated animate__fadeIn animate__delay-3s">
             <a href="#" class="btn btn-outline-light btn-lg">{{ $t('navigation.contacts')}}</a>
-            <a href="#" class="btn btn-outline-light btn-lg ml-5">{{ $t('navigation.about')}}</a>
+            <a href="#" class="btn btn-outline-light btn-lg ms-5">{{ $t('navigation.about')}}</a>
          </div>
       </div>
    </div>
@@ -31,7 +31,7 @@
 
    <div class="page-content layout py-4">
       <section class="row d-flex align-items-center">
-         <div class="col-12 col-md-7 text-center text-md-left order-2 order-md-1">
+         <div class="col-12 col-md-7 text-center text-md-start order-2 order-md-1">
             <em>{{ $t('aboutBlock.title') }}</em>
             <h2 class="block-title left mt-3">{{ $t('company') }}</span></h2>
             <div class="mt-5" style="line-height: 1.5rem">
@@ -51,14 +51,11 @@
 
    <Advantages></Advantages>
 
-   <div class="page-content layout py-4">
-      <h2 class="block-title mb-4" style="text-align:center;">
-         НАШИ <span class="text-blue">КЛИЕНТЫ</span>
-      </h2>
+   
 
-      <PartnersCarousel></PartnersCarousel>
-      <LicensesCarousel></LicensesCarousel>
-   </div>
+   <PartnersCarousel></PartnersCarousel>
+   <LicensesCarousel></LicensesCarousel>
+   
    <FeedbackForm></FeedbackForm>
   </div>
 </template>

@@ -21,16 +21,6 @@
         <div class="navigation-top__item__bg"></div>
         <a href="#">
           <img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYvz69T8DAvz79w9CQVj/0MCffwwAAcQClObiAin6/x+okxHMgPCAbOb//5n+I4EXL74ABBALxGSwagTjPzbAyMgItAQggBg9Pf9nZPx//x7kjL9////9C2QAyf9//qCQQCQkxFhY+BEggFi2b/+nq8v46BEDSPQ3w+8//3//BqFfv9BJeXmQEwACCOSkP38YgHy4Bog0RN0vIOMXVOTPH6Cv/gEEEEgDxFKgHEgDXCmGDUAE1AAQQCybGZg1f/d8//XsH0jTn3+///z79RtE/v4NZfz68xfI/vOX+4/0ZoZFAAHE4gYMvD+3/v2+h91wCANo9Z+/jH9VxBkYAAKIBRg9TL//MEhKAuWAogxgZzGC2CCfgUggAoYdGAEVAwQQ41egu5AQAyoXTQoIAAIMAD+JZR7YOGEWAAAAAElFTkSuQmCC"
-            title="RU"
-            alt="RU"
-            width="16"
-            height="11"
-          />
-          RU
-        </a>
-        <a href="#">
-          <img
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFQSURBVHjaYmRo/c8AB//+MfwBkgwg8s8/KPoFI4GIgQEgAIdycgMACAMxUAF6oygqoQ1q45dkzSH5N26XR/8zCEuepggsVEPFkxB+S9bcRwCxMDCBVD/5+h+o9O8/BqDE378Mv/+DpCGKfgERmCHLw8jw4x9AAIFs+AdUBLQWZDZI9a/////8BSuFawBzf/8FuQMggFiALvsLsh2k+g/cbCTVUBLkKgaGDwwAAcTCIHJKhFPh19+fIHf/+/cbpBNI/gO75x+I/RfKluFiY5A6AhBAjH8fMjDI5P///+A/wy8GoFf/A+34hZVkYlJ6f/wUQACxAEOSESwEDEhURSiqwbJ/gKENEEAgDcwgDlAIrgiLNgaGvyD0hwEggEAamP4DdUrCREE6GRl/gyMPQv6BqgYG+z8GgABi/HoTFL///kBJBjgbwmBAcEEcBgaAAAMASIdu6OFHDhsAAAAASUVORK5CYII="
             title="UA"
             alt="UA"
@@ -39,44 +29,54 @@
           />
           UA
         </a>
+        <a href="#">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYvz69T8DAvz79w9CQVj/0MCffwwAAcQClObiAin6/x+okxHMgPCAbOb//5n+I4EXL74ABBALxGSwagTjPzbAyMgItAQggBg9Pf9nZPx//x7kjL9////9C2QAyf9//qCQQCQkxFhY+BEggFi2b/+nq8v46BEDSPQ3w+8//3//BqFfv9BJeXmQEwACCOSkP38YgHy4Bog0RN0vIOMXVOTPH6Cv/gEEEEgDxFKgHEgDXCmGDUAE1AAQQCybGZg1f/d8//XsH0jTn3+///z79RtE/v4NZfz68xfI/vOX+4/0ZoZFAAHE4gYMvD+3/v2+h91wCANo9Z+/jH9VxBkYAAKIBRg9TL//MEhKAuWAogxgZzGC2CCfgUggAoYdGAEVAwQQ41egu5AQAyoXTQoIAAIMAD+JZR7YOGEWAAAAAElFTkSuQmCC"
+            title="RU"
+            alt="RU"
+            width="16"
+            height="11"
+          />
+          RU
+        </a>
       </div>
     </div>
 
     <nav class="navigation layout">
-      <NuxtLink to="/" class="navigation__logo">
+      <nuxt-link :to="localePath('/')" class="navigation__logo">
         <img src="~/assets/images/logo.svg" alt="Logo" />
         <span>{{ $t('company')}}</span>
-      </NuxtLink>
+      </nuxt-link>
 
       <div class="navigation-content-right">
-        <NuxtLink to="/" class="navigation-link active">
+        <nuxt-link :to="localePath('/')" class="navigation-link active">
           {{ $t('navigation.home')}}
-        </NuxtLink>
+        </nuxt-link>
         <div class="navigation-link dropdown">
           {{ $t('navigation.services')}}
 
           <div class="dropdown__inner">
-            <div class="service-category" :key="c.title + i" v-for="(c, i) in categories">
-              <a :href="c.url" class="service-category__title">{{c.title}}</a>
+            <div class="service-category" :key="c.id + i" v-for="(c, i) in categories">
+              <nuxt-link :to="localePath(`/services/${c.id}`)" class="service-category__title">{{ $t(`services.${c.id}`) }}</nuxt-link>
               <div v-if="c.jobs">
-                <div :key="c.title + i + j.title" v-for="j in c.jobs">
-                  <a :href="j.url" class="service-job">
-                    {{j.title}}
-                  </a>
+                <div :key="j" v-for="j in c.jobs">
+                  <nuxt-link :to="localePath(`/services/${c.id}/${j}`)" class="service-job">
+                    {{ $t(`jobs.${j}.name`) }}
+                  </nuxt-link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <NuxtLink to="/portfolio" class="navigation-link">
+        <nuxt-link :to="localePath('/portfolio')" class="navigation-link">
           {{ $t('navigation.portfolio')}}
-        </NuxtLink>
-        <NuxtLink to="/about-business-point" class="navigation-link">
+        </nuxt-link>
+        <nuxt-link :to="localePath('/about-business-point')" class="navigation-link">
           {{ $t('navigation.about')}}
-        </NuxtLink>
-        <NuxtLink to="/contacts" class="navigation-link">
+        </nuxt-link>
+        <nuxt-link :to="localePath('/contacts')" class="navigation-link">
           {{ $t('navigation.contacts')}}
-        </NuxtLink>
+        </nuxt-link>
       </div>
       <button class="navigation-mobile-btn">
         <span></span>
@@ -93,55 +93,16 @@ export default {
     navigationHideTop: false,
     isBackground: false,
     pagesWithBackground: ['about-business-point___uk', 'services-id___uk', 'portfolio___uk'],
-    categories: [
-      {
-        title: 'Электромонтажные работы', 
-        url: '#',
-        jobs: [
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-        ]
-      },
-      {
-        title: 'Аварийные работы', 
-        url: '#',
-        jobs: [
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-
-        ]
-      },
-      {
-        title: 'Электротехническая лаборатория', 
-        url: '#',
-        jobs: [
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-          {title: '123', url: '#'},
-        ]
-      },
-      {
-        title: 'Ремонт и обслуживание электросетей', 
-        jobs: [
-          {title: '123', url: '#'},
-        ]
-      }
-      ,
-      {
-        title: 'Поставка материалов и оборудования', 
-        url: '#',
-      },
-      {
-        title: 'Аудит электроустановок и электрооборудования', 
-        url: '#'
-      }
-    ]
+    categories: []
   }),
+  async fetch() {
+    let categories = [];
+    let services = await this.$store.state.services;
+    for (let id in services) {
+      categories.push({ id, jobs: services[id].jobs })
+    }
+    this.categories = categories;
+  },
   watch: {
     $route(to, from) {
       // Alternative navigation
@@ -288,11 +249,7 @@ export default {
     height: 100%;
 
     img {
-      height: 120%;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 50%;
-      padding: 10px;
-      z-index: auto;
+      height: 100%;
       margin-right: $s-1;
     }
   }
@@ -309,7 +266,7 @@ export default {
   &-link {
     display: flex;
     align-items: center;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     padding: 0 16px;
     color: #fff;
     font-size: 13px;
@@ -386,19 +343,23 @@ export default {
   .dropdown__inner {
     display: none;
     position: fixed;
-    top: 145px;
+    top: 142px;
     left: 0;
     width: 100vw;
     padding: $s-4;
     background: rgba(0, 0, 0, 0.6);
-    max-height: 50vh;
-
+    // max-height: 50vh;
     flex-wrap: wrap;
   }
   &:hover {
     .dropdown__inner {
       display: flex;
     }
+  }
+}
+.hide-top {
+  .dropdown__inner {
+    top: 62px;
   }
 }
 .service-category {

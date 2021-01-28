@@ -1,31 +1,26 @@
 const state = () => ({
     services: {
         'elektromontazhnye-raboty': {
-            name: 'Электромонтажные работы',
             icon: 'power-tower',
-            url: '/services/avariynye-raboty',
+            url: '/services/elektromontazhnye-raboty',
             jobs: ['remont-kl', 'avarijnyj-remont']
         },
         'avariynye-raboty': {
-            name: 'Аварийные работы',
             icon: 'electrical-sign',
             url: '/services/avariynye-raboty',
             jobs: ['montazh-vnutr-elektrosetei', 'montag-vneshnikh-setei', 'prokladka-kabelnih-liniy', 'elektroschit', 'bliskavkozakhist']
         },
         'elektrotehnicheskaya-laboratoriya': {
-            name: 'Электротехническая лаборатория',
             icon: 'multimeter',
             url: '/services/elektrotehnicheskaya-laboratoriya',
             jobs: ['etl-04kv', 'etl-10kv']
         },
         'remont-i-obslyzhuvanie': {
-            name: 'Ремонт и обслуживание электросетей',
             icon: 'transformer',
             url: '/services/remont-i-obslyzhuvanie',
             jobs: ['obsluzhivanie', 'remont-i-obsluzhivanie-silovyh-transformatorov', 'remont-oborudovaniya-transformatornyh-podstanciy', 'remont-elektroshhitov']
         },
         'proektnye-raboty': {
-            name: 'Проектные работы',
             icon: 'house',
             url: '/services/proektnye-raboty',
             jobs: ['proektnye-raboty']
@@ -33,7 +28,6 @@ const state = () => ({
 
         // Поставка Проекти и аудит 3 категории  3 работы -> Сделать 1 категорию Другое 3 работи  ??? 
         'postavka': {
-            name: 'Поставка материалов и оборудования',
             icon: 'coal',
             url: '/services/postavka',
             jobs: ['postavka']
@@ -42,7 +36,6 @@ const state = () => ({
     jobs: {
         // Id / serviceId / images / recomendations
         'remont-kl': {
-            id: 'remont-kl',
             serviceId: 'elektromontazhnye-raboty',
             images: [
                 'Kabelshchik.jpg'

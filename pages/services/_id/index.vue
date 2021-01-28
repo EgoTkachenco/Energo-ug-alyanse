@@ -5,10 +5,10 @@
                 <div class="col-12">
                     <h2 class="block-title mb-4">{{service.name}}</h2>
                 </div>
-                <div class="col-12 col-md-4 mt-3" v-for="(job, id) in service.jobs" :key="job.name">
+                <div class="col-12 col-md-4 mt-3" v-for="(job, id) in service.jobs" :key="id">
                     <Nuxt-link class="service-link" :to="`${service.url}/${id}`">
-                        <img :src="require(`~/assets/images/${job.images[0]}`)" :alt="job.name" />
-                        <div>{{job.name}}</div>
+                        <img :src="require(`~/assets/images/jobs/${job.images[0]}`)" :alt="job.name" />
+                        <div>{{ $t(`jobs.${id}.name`) }}</div>
                     </Nuxt-link>
                 </div>
             </div>
