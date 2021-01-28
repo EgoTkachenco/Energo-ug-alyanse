@@ -2,7 +2,7 @@
   <div
     id="navigation"
     class="navigation-wrapper"
-    :class="{ 'hide-top': navigationHideTop, background: isBackground }"
+    :class="{ 'hide-top': navigationHideTop || isDropdownActive, background: isBackground }"
   >
     <div class="navigation__btn-top" @click="scrollTop">Top</div>
 
@@ -20,29 +20,28 @@
       <div class="navigation-top__item lang">
         <div class="navigation-top__item__bg"></div>
         <a href="#">
-          <img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFQSURBVHjaYmRo/c8AB//+MfwBkgwg8s8/KPoFI4GIgQEgAIdycgMACAMxUAF6oygqoQ1q45dkzSH5N26XR/8zCEuepggsVEPFkxB+S9bcRwCxMDCBVD/5+h+o9O8/BqDE378Mv/+DpCGKfgERmCHLw8jw4x9AAIFs+AdUBLQWZDZI9a/////8BSuFawBzf/8FuQMggFiALvsLsh2k+g/cbCTVUBLkKgaGDwwAAcTCIHJKhFPh19+fIHf/+/cbpBNI/gO75x+I/RfKluFiY5A6AhBAjH8fMjDI5P///+A/wy8GoFf/A+34hZVkYlJ6f/wUQACxAEOSESwEDEhURSiqwbJ/gKENEEAgDcwgDlAIrgiLNgaGvyD0hwEggEAamP4DdUrCREE6GRl/gyMPQv6BqgYG+z8GgABi/HoTFL///kBJBjgbwmBAcEEcBgaAAAMASIdu6OFHDhsAAAAASUVORK5CYII="
-            title="UA"
-            alt="UA"
-            width="16"
-            height="11"
-          />
           UA
         </a>
         <a href="#">
-          <img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYvz69T8DAvz79w9CQVj/0MCffwwAAcQClObiAin6/x+okxHMgPCAbOb//5n+I4EXL74ABBALxGSwagTjPzbAyMgItAQggBg9Pf9nZPx//x7kjL9////9C2QAyf9//qCQQCQkxFhY+BEggFi2b/+nq8v46BEDSPQ3w+8//3//BqFfv9BJeXmQEwACCOSkP38YgHy4Bog0RN0vIOMXVOTPH6Cv/gEEEEgDxFKgHEgDXCmGDUAE1AAQQCybGZg1f/d8//XsH0jTn3+///z79RtE/v4NZfz68xfI/vOX+4/0ZoZFAAHE4gYMvD+3/v2+h91wCANo9Z+/jH9VxBkYAAKIBRg9TL//MEhKAuWAogxgZzGC2CCfgUggAoYdGAEVAwQQ41egu5AQAyoXTQoIAAIMAD+JZR7YOGEWAAAAAElFTkSuQmCC"
-            title="RU"
-            alt="RU"
-            width="16"
-            height="11"
-          />
           RU
         </a>
       </div>
     </div>
 
     <nav class="navigation layout">
+      <div class="dropdown layout" v-if="isDropdownActive">
+        <div class="service-category" :key="c.id + i" v-for="(c, i) in categories">
+          <nuxt-link :to="localePath(`/services/${c.id}`)" class="service-category__title">{{ $t(`services.${c.id}`) }}</nuxt-link>
+          <div v-if="c.jobs">
+            <div :key="j" v-for="j in c.jobs">
+              <nuxt-link :to="localePath(`/services/${c.id}/${j}`)" class="service-job">
+                {{ $t(`jobs.${j}.name`) }}
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <nuxt-link :to="localePath('/')" class="navigation__logo">
         <img src="~/assets/images/logo.svg" alt="Logo" />
         <span>{{ $t('company')}}</span>
@@ -52,21 +51,8 @@
         <nuxt-link :to="localePath('/')" class="navigation-link active">
           {{ $t('navigation.home')}}
         </nuxt-link>
-        <div class="navigation-link dropdown">
+        <div class="navigation-link" @click="isDropdownActive = !isDropdownActive">
           {{ $t('navigation.services')}}
-
-          <div class="dropdown__inner">
-            <div class="service-category" :key="c.id + i" v-for="(c, i) in categories">
-              <nuxt-link :to="localePath(`/services/${c.id}`)" class="service-category__title">{{ $t(`services.${c.id}`) }}</nuxt-link>
-              <div v-if="c.jobs">
-                <div :key="j" v-for="j in c.jobs">
-                  <nuxt-link :to="localePath(`/services/${c.id}/${j}`)" class="service-job">
-                    {{ $t(`jobs.${j}.name`) }}
-                  </nuxt-link>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <nuxt-link :to="localePath('/portfolio')" class="navigation-link">
           {{ $t('navigation.portfolio')}}
@@ -93,7 +79,9 @@ export default {
     navigationHideTop: false,
     isBackground: false,
     pagesWithBackground: ['about-business-point___uk', 'services-id___uk', 'portfolio___uk'],
-    categories: []
+    categories: [],
+    
+    isDropdownActive: false
   }),
   async fetch() {
     let categories = [];
@@ -110,36 +98,28 @@ export default {
     },
   },
   mounted() {
-    if(process && process.client) {
-      window.onscroll = this.handleScroll
-      if (window.scrollY > 0) this.navigationHideTop = true
-      this.isBackground = this.pagesWithBackground.includes(this.$route.name);
-    }
+    this.$nextTick(() => {
+      if(this.pagesWithBackground.includes(this.$route.name)) {
+        this.navigationHideTop = false;
+        this.isBackground = true;
+      } else {
+        if(window) {
+          window.onscroll = this.handleScroll;
+          if (window.scrollY > 0) this.navigationHideTop = true;
+        }
+      }
+    })
   },
   methods: {
     scrollTop() {
       window.scrollTo(0, 0);
     },
     handleScroll(e) {
-      console.log(this.$route.name)
-      if(this.pagesWithBackground.includes(this.$route.name)) {
-        document
-          .querySelector('.navigation-wrapper')
-          .classList.remove('hide-top')
-        this.navigationHideTop = false;
-        return;
-      };
       if (!this.navigationHideTop && window.scrollY > 0) {
-        document.querySelector('.navigation-wrapper').classList.add('hide-top')
         this.navigationHideTop = true;
-        return;
       }
       if (this.navigationHideTop && window.scrollY === 0) {
-        document
-          .querySelector('.navigation-wrapper')
-          .classList.remove('hide-top')
         this.navigationHideTop = false;
-        return;
       }
     },
   },
@@ -234,6 +214,7 @@ export default {
 }
 .navigation {
   display: flex;
+  position: relative;
   align-items: center;
   height: 62px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -274,6 +255,7 @@ export default {
     transition: all 0.5s;
     margin-bottom: 2px;
     font-weight: 700;
+    cursor: pointer;
 
     &:hover {
       box-shadow: 0 2px 0 0 $c-white;
@@ -340,36 +322,27 @@ export default {
   }
 }
 .dropdown {
-  .dropdown__inner {
-    display: none;
-    position: fixed;
-    top: 142px;
-    left: 0;
-    width: 100vw;
-    padding: $s-4;
-    background: rgba(0, 0, 0, 0.6);
-    // max-height: 50vh;
-    flex-wrap: wrap;
-  }
-  &:hover {
-    .dropdown__inner {
-      display: flex;
-    }
-  }
-}
-.hide-top {
-  .dropdown__inner {
-    top: 62px;
-  }
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  padding-top: 2rem;
+  background: $c-dark-grey;
+  // max-height: 50vh;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 400px;
 }
 .service-category {
-  width: 33%;
+  width: 22%;
   margin-bottom: $s-2;
   font-weight: normal;
 }
 .service-category__title {
   color: $c-white;
   font-size: $t-text;
+  font-weight: bold;
   &:hover {
     color: $c-blue;
     text-decoration: none;
@@ -378,6 +351,9 @@ export default {
 .service-job {
   color: $c-white;
   font-size: $t-caption;
+  padding-left: 2rem;
+  display: block;
+
   &:hover {
     color: $c-blue;
     text-decoration: none;

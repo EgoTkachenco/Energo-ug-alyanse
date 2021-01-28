@@ -78,6 +78,7 @@ export default {
         'remont-i-obslyzhuvanie': 'Ремонт і обслуговування електромереж',
         'proektnye-raboty': 'Проектні роботи',
         'postavka': 'Поставка матеріалів і обладнання',
+        'other': 'Інші роботи'
     },
     jobs: {
         'remont-kl': {

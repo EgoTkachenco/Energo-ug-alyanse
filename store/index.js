@@ -3,12 +3,12 @@ const state = () => ({
         'elektromontazhnye-raboty': {
             icon: 'power-tower',
             url: '/services/elektromontazhnye-raboty',
-            jobs: ['remont-kl', 'avarijnyj-remont']
+            jobs: ['montazh-vnutr-elektrosetei', 'montag-vneshnikh-setei', 'prokladka-kabelnih-liniy', 'elektroschit', 'bliskavkozakhist']
         },
         'avariynye-raboty': {
             icon: 'electrical-sign',
             url: '/services/avariynye-raboty',
-            jobs: ['montazh-vnutr-elektrosetei', 'montag-vneshnikh-setei', 'prokladka-kabelnih-liniy', 'elektroschit', 'bliskavkozakhist']
+            jobs: ['remont-kl', 'avarijnyj-remont']
         },
         'elektrotehnicheskaya-laboratoriya': {
             icon: 'multimeter',
@@ -20,17 +20,10 @@ const state = () => ({
             url: '/services/remont-i-obslyzhuvanie',
             jobs: ['obsluzhivanie', 'remont-i-obsluzhivanie-silovyh-transformatorov', 'remont-oborudovaniya-transformatornyh-podstanciy', 'remont-elektroshhitov']
         },
-        'proektnye-raboty': {
+        'other': {
             icon: 'house',
             url: '/services/proektnye-raboty',
-            jobs: ['proektnye-raboty']
-        },
-
-        // Поставка Проекти и аудит 3 категории  3 работы -> Сделать 1 категорию Другое 3 работи  ??? 
-        'postavka': {
-            icon: 'coal',
-            url: '/services/postavka',
-            jobs: ['postavka']
+            jobs: ['proektnye-raboty', 'postavka', 'audit_elektroobladnannya']
         },
     },
     jobs: {
@@ -131,20 +124,26 @@ const state = () => ({
         },
 
         'proektnye-raboty': {
-            serviceId: 'proektnye-raboty',
+            serviceId: 'other',
             images: [
                 'Kabelshchik.jpg'
             ],
             recomendations: []
         },
-
         'postavka': {
-            serviceId: 'postavka',
+            serviceId: 'other',
             images: [
                 'Kabelshchik.jpg'
             ],
             recomendations: []
         },
+        'audit_elektroobladnannya': {
+            serviceId: 'other',
+            images: [
+                'Kabelshchik.jpg'
+            ],
+            recomendations: []
+        }
     },
     portfolio: [
         {
