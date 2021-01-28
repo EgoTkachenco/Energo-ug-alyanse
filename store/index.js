@@ -22,7 +22,7 @@ const state = () => ({
         },
         'other': {
             icon: 'house',
-            url: '/services/proektnye-raboty',
+            url: '/services/other',
             jobs: ['proektnye-raboty', 'postavka', 'audit_elektroobladnannya']
         },
     },
