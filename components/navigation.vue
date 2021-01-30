@@ -84,7 +84,7 @@
         <nuxt-link :to="localePath('/contacts')" class="navigation-link">
           {{ $t('navigation.contacts')}}
         </nuxt-link>
-        <a download href="/Каталог-послуг-ЕНЕРГОЮГ-АЛЬЯНС.pdf"  class="navigation-link download">
+        <a download="catalog" href="/catalog.pdf"  class="navigation-link download">
           {{ $t('navigation.catalog') }}
         </a>
       </div>
