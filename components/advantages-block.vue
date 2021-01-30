@@ -71,7 +71,7 @@
   color: $c-white;
 
   .illustration {
-    height: 100%;
+    // height: 100%;
   }
   
   &-list {
