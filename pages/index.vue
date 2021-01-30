@@ -61,42 +61,53 @@
 </template>
 
 <script>
-import Services from '../components/services';
-import Advantages from '../components/advantages-block';
-import LicensesCarousel from '../components/licenses-carousel';
-import PartnersCarousel from '../components/partners-carousel';
-import FeedbackForm from '../components/feedback-form';
+import Services from '../components/services'
+import Advantages from '../components/advantages-block'
+import LicensesCarousel from '../components/licenses-carousel'
+import PartnersCarousel from '../components/partners-carousel'
+import FeedbackForm from '../components/feedback-form'
 
 export default {
+  head() {
+    return {
+      title: `${this.$t('pages.home.p_title')}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.$t('pages.home.p_description')}`,
+        },
+      ],
+    }
+  },
   components: {
     LicensesCarousel,
     PartnersCarousel,
     Services,
     FeedbackForm,
-    Advantages
+    Advantages,
   },
   mounted() {
-     console.log(this.$store.state);
-  }
+    console.log(this.$store.state)
+  },
 }
 </script>
 
 <style lang="scss">
 .about-image {
-   transform: translate(25px, 25px);
-   background: $c-blue;
-   width: max-content;
-   margin: auto;
-   img {
-      max-height: 600px;
-      transform: translate(-25px, -25px);
-
-   }
-   @media(max-width: $md) { 
-      img {
-         max-height: 300px;
-      }
-      margin-bottom: $s-4;
-   }
+  transform: translate(25px, 25px);
+  background: $c-blue;
+  width: max-content;
+  margin: auto;
+  img {
+    max-height: 600px;
+    transform: translate(-25px, -25px);
+  }
+  @media (max-width: $md) {
+    img {
+      max-height: 300px;
+    }
+    margin-bottom: $s-4;
+  }
 }
 </style>

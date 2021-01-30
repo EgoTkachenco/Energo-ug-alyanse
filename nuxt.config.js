@@ -7,10 +7,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Meta description' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', sizes: '32x32', type: 'image/png', href: '/favicon.png' },
+      { rel: 'icon', sizes: '192x192', type: 'image/png', href: '/favicon.png' },
+      { rel: 'apple-touch-icon-precomposed', type: 'image/png', href: '/favicon.png' },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap", },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap", },
       { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", },
@@ -38,14 +40,21 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    ['nuxt-mail', {
+        smtp: {
+          host: "mail.adm.tools",
+          port: 25,
+        },
+      },
+    ],
     '@nuxtjs/style-resources',
     ['nuxt-i18n', {
-      detectBrowserLanguage: {
-        useCookie: true,
-        cookieKey: 'i18n_redirected',
-        alwaysRedirect: false,
-        fallbackLocale: 'en'
-      },
+      // detectBrowserLanguage: {
+      //   useCookie: true,
+      //   cookieKey: 'i18n_redirected',
+      //   alwaysRedirect: false,
+      //   fallbackLocale: 'en'
+      // },
       locales: [
         {
           name: 'Ukrainian',
@@ -63,13 +72,31 @@ export default {
       lazy: true,
       langDir: 'lang/',
       defaultLocale: 'uk',
+      seo: false
     }],
 
     ['nuxt-lazy-load', {
       // Your options
       directiveOnly: true,
-      defaultImage: '/default-loader.gif',
-    }]
+      defaultImage: '/default.gif',
+    }],
+    [
+    '@nuxtjs/firebase',
+    {
+      config: {
+        apiKey: "AIzaSyC-Df_IAuGM1oe2VFO8dL3uqGCjcq5Kiu4",
+        authDomain: "energougalyance.firebaseapp.com",
+        projectId: "energougalyance",
+        storageBucket: "energougalyance.appspot.com",
+        messagingSenderId: "585158069155",
+        appId: "1:585158069155:web:bdc340fbf1e004530e6816",
+        databaseURL: ""
+      },
+      services: {
+        firestore: true
+      }
+    }
+    ]
   ],
 
   styleResources: {

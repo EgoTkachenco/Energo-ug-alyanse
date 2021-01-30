@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid feedback-form">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12 col-md-6 px-0 order-2 order-md-1">
         <iframe
           class="feedback-form-map"
@@ -8,16 +8,16 @@
           width="100%"
           height="100%"
           frameborder="0"
-          style="border: 0"
+          style="border: 0; min-height: 250px"
           allowfullscreen=""
           aria-hidden="false"
           tabindex="0"
         ></iframe>
       </div>
       <div
-        class="col-12 col-md-6 order-1 order-md-2 py-5 d-flex flex-column justify-content-center"
+        class="col-10 col-md-6 order-1 order-md-2 p-5 d-flex flex-column justify-content-center"
       >
-        <form @submit="handleForm($event)" v-if="!isSubmited">
+        <form @submit.prevent.stop="handleForm()" v-if="!isSubmited">
           <em>{{ $t('formBlock.questions')}}</em>
           <h2 class="form-title">
             {{ $t('formBlock.feedback')}}
@@ -27,6 +27,7 @@
             class="form-control"
             type="text"
             name="name"
+            v-model="form.name"
             required
             max="30"
             :placeholder="$t('formBlock.name')"
@@ -35,16 +36,17 @@
           <input
             class="form-control"
             type="tel"
+            v-model="form.phone"
             name="phone"
             :placeholder="$t('formBlock.phone')"
             required
           />
 
-          <button class="btn btn-warning">{{ $t('formBlock.submit') }}</button>
+          <button class="btn btn-light float-end float-md-start">{{ $t('formBlock.submit') }}</button>
         </form>
 
         <div class="display-4 text-center" v-else>
-            Добро, наберу как буду дома
+            {{ $t('formBlock.finish')}}
         </div>
       </div>
     </div>
@@ -54,13 +56,37 @@
 <script>
 export default {
   data: () => ({
-      isSubmited: false
+      isSubmited: false,
+      form : {
+        name: '',
+        phone: ''
+      }
   }),
   methods: {
-    handleForm(e) {
-      e.preventDefault()
-      console.log('Submit Prevented')
-      this.isSubmited = true;
+    handleForm() {
+      console.log(this.$route)
+      let form = {
+        name: this.form.name,
+        phone: this.form.phone,
+        page: this.$route.title,
+        email: '-- --- --',
+        time: new Date()
+      }
+      // console.log(this.$fire)
+      this.$fire.firestore.collection("feedbacks").add(form)
+        .then(() => {
+          this.isSubmited = true;
+          // this.$mail.send({
+          //   from: 'John Doe',
+          //   subject: 'Incredible',
+          //   text: 'This is an incredible test message',
+          //   to: 'egortkachenco@gmail.com',
+          // })
+        })
+        .catch((error) => {
+          console.error("Error adding document: ", error);
+        });
+      
     },
   },
 }

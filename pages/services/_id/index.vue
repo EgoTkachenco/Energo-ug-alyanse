@@ -8,7 +8,7 @@
                 <div class="col-8 col-md-4 mt-3" v-for="(job, id) in service.jobs" :key="id">
                     <Nuxt-link class="service-link" :to="`${service.url}/${id}`">
                         <img :src="require(`~/assets/images/jobs/${job.images[0]}`)" :alt="job.name" />
-                        <div>{{ $t(`jobs.${id}.name`) }}</div>
+                        <h3 class="service-link__title">{{ $t(`jobs.${id}.name`) }}</h3>
                     </Nuxt-link>
                 </div>
             </div>
@@ -18,6 +18,18 @@
 
 <script>
 export default {
+    head() {
+        return {
+        title: `${this.$t(`services.${this.$route.params.id}`)} - ${this.$t(`company`)}`,
+        meta: [
+            {
+            hid: 'description',
+            name: 'description',
+            content: `${this.$t('pages.services.p_description')}`,
+            },
+        ],
+        }
+    },
     computed: {
         service() {
             let service = {...this.$store.state.services[this.$route.params.id]};
@@ -37,10 +49,22 @@ export default {
     text-decoration: none;
     text-align: center;
     color: $c-dark-grey;
-    transition: all 0.5s;
+    h3, img {
+        transition: 0.5s all ease;
+    }
+    &__title {
+        margin-top: 1rem;
+    }
     &:hover {
-        text-decoration: none;
         color: $c-blue;
+        background: $c-light-blue;
+        img, h3 {
+            transform: scale(1.1);
+        }
+        h3 {
+            margin-top: 1.5rem;
+        }
+        text-decoration: none;
     }
 
     img {

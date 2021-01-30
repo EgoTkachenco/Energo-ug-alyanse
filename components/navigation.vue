@@ -4,8 +4,6 @@
     class="navigation-wrapper"
     :class="{ 'hide-top': navigationHideTop || isDropdownActive, background: isBackground }"
   >
-    <div class="navigation__btn-top" @click="scrollTop">Top</div>
-
     <div class="navigation-top layout">
       <div class="navigation-top__item">
         <div class="navigation-top__item__bg"></div>
@@ -29,7 +27,11 @@
     </div>
 
     <nav class="navigation layout">
-      <div class="dropdown layout" v-if="isDropdownActive && !showMobileMenu">
+      <div 
+        class="dropdown layout" 
+        @mouseenter="collapseDropdown(true)"
+        @mouseleave="collapseDropdown(false)" 
+        v-if="isDropdownActive && !showMobileMenu">
         <div class="service-category" :key="c.id + i" v-for="(c, i) in categories">
           <nuxt-link :to="localePath(`/services/${c.id}`)" class="service-category__title">{{ $t(`services.${c.id}`) }}</nuxt-link>
           <div v-if="c.jobs">
@@ -43,15 +45,19 @@
       </div>
 
       <nuxt-link :to="localePath('/')" class="navigation__logo">
-        <img src="~/assets/images/logo.svg" alt="Logo" />
-        <span>{{ $t('company')}}</span>
+        <img src="~/assets/icons/logo-full.svg" alt="Logo" />
       </nuxt-link>
 
       <div class="navigation-content-right" :class="{'active': showMobileMenu }">
         <nuxt-link :to="localePath('/')" class="navigation-link active">
           {{ $t('navigation.home')}}
         </nuxt-link>
-        <div class="navigation-link" :class="{'active': isDropdownActive}" @click="isDropdownActive = !isDropdownActive">
+        <div 
+          class="navigation-link" 
+          :class="{'active': isDropdownActive}" 
+          @click="isDropdownActive = !isDropdownActive"
+          @mouseenter="collapseDropdown(true)"
+          @mouseleave="collapseDropdown(false)">
           {{ $t('navigation.services')}}
           <svg  
             :class="{'rotate': isDropdownActive}"
@@ -63,7 +69,9 @@
             <path fill="#ffffff" d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751   c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0   c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
           </svg>
         </div>
-        <div class="mob-services mt-2" :class="{'active': isDropdownActive && showMobileMenu }">
+        <div 
+          class="mob-services mt-2"  
+          :class="{'active': isDropdownActive && showMobileMenu }">
           <div class="service-category" :key="c.id + i" v-for="(c, i) in categories">
           <nuxt-link :to="localePath(`/services/${c.id}`)" class="service-category__title">{{ $t(`services.${c.id}`) }}</nuxt-link>
           <div v-if="c.jobs">
@@ -84,9 +92,17 @@
         <nuxt-link :to="localePath('/contacts')" class="navigation-link">
           {{ $t('navigation.contacts')}}
         </nuxt-link>
-        <a download="catalog" href="/catalog.pdf"  class="navigation-link download">
+        <a target="_blank" href="/catalog.pdf"  class="navigation-link download">
           {{ $t('navigation.catalog') }}
         </a>
+         <div class="navigation__mob-phones">
+          <a href="tel:+380442219189">+38 (044) 221-91-89</a>
+          <a href="tel:+380442219189">+38 (044) 221-91-89</a>
+        </div>
+      </div>
+      <div class="navigation__phones">
+        <a href="tel:+380442219189">+38 (044) 221-91-89</a>
+        <a href="tel:+380442219189">+38 (044) 221-91-89</a>
       </div>
       <button 
         class="navigation-mobile-btn" 
@@ -105,11 +121,15 @@ export default {
   data: () => ({
     navigationHideTop: false,
     isBackground: false,
-    pagesWithBackground: ['about-business-point___uk', 'services-id___uk', 'portfolio___uk'],
+    pagesWithBackground: [
+      'about-business-point___uk', 'services-id___uk', 'portfolio___uk', 'privacy-policy___uk', 'contacts___uk',
+      'about-business-point___ru', 'services-id___ru', 'portfolio___ru', 'privacy-policy___ru', 'contacts___ru',
+    ],
     categories: [],
     
     isDropdownActive: false,
-    showMobileMenu: false
+    showMobileMenu: false,
+    collapseTimeout: null
   }),
   async fetch() {
     let categories = [];
@@ -143,8 +163,17 @@ export default {
     }
   },
   methods: {
-    scrollTop() {
-      window.scrollTo(0, 0);
+    collapseDropdown(val) {
+      if(window.screen.width < 1224) return;
+      if(this.collapseTimeout) clearTimeout(this.collapseTimeout);
+      if(!val) {
+        this.collapseTimeout = setTimeout(() => {
+          this.isDropdownActive = val;
+        }, 500);
+      } else {
+        clearTimeout(this.collapseTimeout);
+        this.isDropdownActive = val;
+      }
     },
     handleScroll(e) {
       if (!this.navigationHideTop && window.scrollY > 0) {
@@ -242,7 +271,7 @@ export default {
   color: #fff;
 
   &__logo {
-    margin-right: 32px;
+    margin-right: 2rem;
     font-size: 20px;
     font-family: $logoFont;
     color: $c-blue;
@@ -252,17 +281,34 @@ export default {
 
     img {
       height: 100%;
-      margin-right: $s-1;
     }
   }
   &-content-right {
     height: 100%;
-    margin-left: $s-4;
     display: flex;
   }
 
   &-mobile-btn {
     display: none;
+  }
+  &__mob-phones {
+    display: none;
+  }
+  &__phones {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    a {
+      color: $c-white;
+      font-weight: bold;
+
+      &:hover {
+        color: $c-blue;
+      }
+    }
   }
 
   &-link {
@@ -286,7 +332,9 @@ export default {
       box-shadow: 0 2px 0 0 $c-blue;
     }
   }
-
+  @media (max-width: 1450px) {
+    padding: 0 2%;
+  }
   @media (max-width: $md) {
     background: $c-dark-grey;
 
@@ -313,6 +361,16 @@ export default {
         .service-category {
           width: 100%;
         }
+      }
+    }
+    &__phones {
+      display: none;
+    }
+    &__mob-phones{
+      display: flex; 
+      flex-direction: column;
+      a {
+        color: $c-white;
       }
     }
     &-mobile-btn {
@@ -352,6 +410,10 @@ export default {
 
     .navigation {
       background: $c-dark-grey;
+
+      &__phones {
+        opacity: 1;
+      }
     }
     .navigation__btn-top {
     opacity: 1;

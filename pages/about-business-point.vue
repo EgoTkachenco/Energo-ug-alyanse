@@ -17,8 +17,7 @@
 
         </div>
         <div class="col-6 d-none d-lg-flex logo">
-          <img src="~/assets/images/logo.svg" width="250" alt="Logo">
-          <span class="logo-label">{{ $t('company') }}</span>
+          <img src="~/assets/icons/logo-about.svg" width="100%" alt="Logo">
         </div>
       </div>
     </div>
@@ -31,6 +30,18 @@
 import FeedbackForm from '../components/feedback-form';
 
 export default {
+  head() {
+    return {
+      title: `${this.$t('pages.about.p_title')}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.$t('pages.about.p_description')}`,
+        },
+      ],
+    }
+  },
   components: {
     FeedbackForm
   }

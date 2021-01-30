@@ -67,6 +67,7 @@
 
   img {
     height: 5rem;
+    color: $c-blue;
   }
 }
 </style>

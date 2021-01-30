@@ -1,16 +1,17 @@
 <template>
   <div>
-    <div class="page-header">
-      <div class="page-header__bg"></div>
+    <div class="page-header-job">
+      <div class="page-header-job__bg"></div>
       <img :src="require(`~/assets/images/jobs/${job.images[1]}`)" class="video" alt="" />
 
-      <div class="page-header-inner">
+      <div class="page-header-job-inner">
         <h1 class="animate__animated animate__fadeIn">
           {{ $t(`jobs.${jobId}.name`) }}
         </h1>
-        <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-2s" 
+        <div class="page-header-job__subtitle mt-5 animate__animated animate__fadeIn animate__delay-1s" 
           v-html="$t(`jobs.${jobId}.subtitle`)">
         </div>
+        <button @click="toForm" class="page-header-job__btn animate__animated animate__fadeIn animate__delay-1s">Подати Заявку</button>
       </div>
     </div>
 
@@ -25,6 +26,7 @@
         <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
           <img v-for="img in images"
               :key="img" 
+              :style="{maxHeight: images.lenght > 1 ? '250px' : '600px'}"
               class="job-illustrations"
               :src="require(`~/assets/images/jobs/${img}`)" 
               :alt="$t(`jobs.${jobId}.name`)" />
@@ -45,14 +47,13 @@
         </div>
 
         <div class="col-6 col-md-3 mb-3" v-for="(r, i) in job.recomendations" :key="i">
-          <nuxt-link :to="localePath(r.url)" class="d-flex flex-column text-center">
+          <nuxt-link :to="localePath(r.url)" class="d-flex flex-column text-center recomendation-link">
             <img
               :src="require(`~/assets/images/jobs/${r.image}`)"
-              class="recomendation-image"
               :alt="$t(r.title)"
             />
 
-            <div class="mt-2 fs-6">{{ $t(r.title) }}</div>
+            <h5>{{ $t(r.title) }}</h5>
           </nuxt-link>
         </div>
 
@@ -74,6 +75,18 @@ import PartnersCarousel from '~/components/partners-carousel';
 import FeedbackForm from '~/components/feedback-form';
 
 export default {
+  head() {
+    return {
+      title: `${this.$t(`jobs.${this.jobId}.name`)} - ${this.$t(`company`)}`,
+      meta: [
+        {
+        hid: 'description',
+        name: 'description',
+        content: `${this.$t('pages.jobs.p_description')}`,
+        },
+      ],
+    }
+  },
   components: {
     WorkSchema,
     WhyWe,
@@ -81,6 +94,11 @@ export default {
     PartnersCarousel,
     FeedbackForm,
     JobForm
+  },
+  methods: {
+    toForm() {
+      window.scrollBy(0, window.screen.height - 62 - window.scrollY);
+    }
   },
   computed: {
     images() {
@@ -100,6 +118,80 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-header-job {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  max-height: 1650px;
+  padding: 180px 10% 150px;
+  display: flex;
+  flex-direction: column;
+  color: $c-white;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+
+  @media (max-width: 800px) {
+    padding: 120px 2% 150px;
+  }
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    flex: 1 1;
+    font-size: 1vw;
+
+    @media (max-width: 800px) {
+      font-size: 10px;
+    }
+
+    h1 {
+      font-size: 4em;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 2, 2, 0.53);
+    z-index: 15;
+  }
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 10;
+  }
+  &__subtitle {
+    font-size: 1.5em;
+    margin: 2rem auto 0;
+    max-width: 70%;
+    line-height: 150%;
+
+    @media (max-width: 800px) {
+      max-width: 100%;
+    }
+  }
+  &__btn {
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 5px;
+    background: $c-blue-gradient;
+    color: $c-white;
+    display: inline-block;
+    margin: 2rem auto;
+    font-size: 1.25em;
+
+    @media (max-width: 800px) {
+      max-width: 100%;
+    }
+  }
+}
 .job-form {
   background: $c-blue-gradient;
   color: $c-white;
@@ -112,12 +204,30 @@ export default {
 .job-illustrations {
   object-fit: cover;
   margin: 0 auto 1rem;
-  max-height: 250px;
+  min-height: 250px;
 }
-.recomendation-image {
-  height: 180px;
-  width: 100%;
-  max-width: 300px;
-  object-fit: cover;
+.recomendation-link {
+  img {
+    height: 180px;
+    width: 100%;
+    max-width: 300px;
+    object-fit: cover;
+  }
+  h5, img {
+    transition: 0.5s all ease;
+  }
+  h5 {
+    margin-top: 1rem;
+  }
+  &:hover {
+    color: $c-blue;
+    img, h5 {
+      transform: scale(1.1);
+    }
+    h5 {
+      margin-top: 1.5rem;
+    }
+    text-decoration: none;
+  }
 }
 </style>

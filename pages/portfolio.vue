@@ -20,6 +20,18 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: `${this.$t('pages.portfolio.p_title')}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.$t('pages.portfolio.p_description')}`,
+        },
+      ],
+    }
+  },
   computed: {
     portfolio() {
       return this.$store.state.portfolio
