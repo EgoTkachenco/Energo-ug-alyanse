@@ -64,11 +64,16 @@ export default {
   }),
   methods: {
     handleForm() {
-      console.log(this.$route)
+      let page = '';
+      if(['about-business-point___uk', 'about-business-point___ru', 'index__uk', 'index__ru'].includes(this.$route.name)) {
+        page = this.$route.path;
+      } else if(['services-id-id___uk', 'services-id-id___ru'].includes(this.$route.name)) {
+        page = this.$t(`jobs.${this.$route.params.id}.name`);
+      }
       let form = {
         name: this.form.name,
         phone: this.form.phone,
-        page: this.$route.title,
+        page: page,
         email: '-- --- --',
         time: new Date()
       }

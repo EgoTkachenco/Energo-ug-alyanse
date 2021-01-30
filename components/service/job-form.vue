@@ -4,7 +4,7 @@
       <form
         class="row align-items-center justify-content-center"
         v-if="!isSubmited"
-        @submit="handleForm($event)"
+        @submit.prevent.stop="handleForm"
       >
         <div class="col-12 col-md-4 text-center text-md-start">
           {{ $t('formBlock.title') }}
@@ -70,12 +70,17 @@ export default {
     isSubmited: false,
   }),
   methods: {
-    handleForm(e) {
-      e.preventDefault()
+    handleForm() {
+      let page = '';
+      if(['about-business-point___uk', 'about-business-point___ru', 'index__uk', 'index__ru'].includes(this.$route.name)) {
+        page = this.$route.path;
+      } else if(['services-id-id___uk', 'services-id-id___ru'].includes(this.$route.name)) {
+        page = this.$t(`jobs.${this.$route.params.id}.name`);
+      }
       let form = {
         name: this.form.name,
         phone: this.form.phone,
-        page: this.$route.name,
+        page: page,
         email: this.form.email,
         time: new Date(),
       }
