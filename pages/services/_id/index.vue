@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-8 col-md-4 mt-3" v-for="(job, id) in service.jobs" :key="id">
                     <Nuxt-link class="service-link" :to="`${service.url}/${id}`">
-                        <img :data-src="require(`~/assets/images/jobs/${job.images[0]}`)" v-lazy-load :alt="job.name" />
+                        <img :src="require(`~/assets/images/jobs/${job.images[0]}`)" :alt="job.name" />
                         <div>{{ $t(`jobs.${id}.name`) }}</div>
                     </Nuxt-link>
                 </div>

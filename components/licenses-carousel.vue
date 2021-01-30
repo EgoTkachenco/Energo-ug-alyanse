@@ -8,8 +8,7 @@
         @click="activeImage = item"
       >
         <img
-          v-lazy-load
-          :data-src="require(`~/assets/images/license/license_${item}_full.png`)"
+          :src="require(`~/assets/images/license/license_${item}_full.png`)"
           class="item_preview"
           :alt="'license' + item"
         />

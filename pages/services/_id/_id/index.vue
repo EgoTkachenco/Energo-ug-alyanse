@@ -47,8 +47,7 @@
         <div class="col-6 col-md-3 mb-3" v-for="(r, i) in job.recomendations" :key="i">
           <nuxt-link :to="localePath(r.url)" class="d-flex flex-column text-center">
             <img
-              :data-src="require(`~/assets/images/jobs/${r.image}`)"
-              v-lazy-load
+              :src="require(`~/assets/images/jobs/${r.image}`)"
               class="recomendation-image"
               :alt="$t(r.title)"
             />
