@@ -2,50 +2,19 @@
   <div>
     <div class="page-header">
       <div class="page-header__bg"></div>
-      <img src="~/assets/images/job-back.png" class="video" alt="" />
+      <img :src="require(`~/assets/images/jobs/${job.images[1]}`)" class="video" alt="" />
 
       <div class="page-header-inner">
-        <h1 class="animate__animated animate__fadeIn animate__delay-1s">
+        <h1 class="animate__animated animate__fadeIn">
           {{ $t(`jobs.${jobId}.name`) }}
         </h1>
-        <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s">
-          {{ $t(`jobs.${jobId}.subtitle`) }}
+        <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-2s" 
+          v-html="$t(`jobs.${jobId}.subtitle`)">
         </div>
       </div>
     </div>
 
-    <div class="job-form">
-      <div class="container">
-        <div class="row align-items-end">
-          <div class="col-12 col-md-4">
-            Чтобы получить предложение: <br />
-            Оставьте заявку:
-          </div>
-          <div class="col-12 col-md-2">
-            <label for="name" class="form-label">Ваше имя </label>
-            <input name="name" class="form-control" type="text" />
-          </div>
-          <div class="col-12 col-md-2">
-            <label for="email" class="form-label">Ваше email </label>
-            <input name="email" class="form-control" type="email" />
-          </div>
-          <div class="col-12 col-md-2">
-            <label for="phone" class="form-label">Ваш телефон </label>
-            <input name="phone" class="form-control" type="text" />
-          </div>
-          <div class="col-12 col-md-2">
-            <button class="btn btn-primary">Отправить</button>
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">Или позвоните нам:</div>
-          <div class="col-3">
-            <div>(044) 221-91-89</div>
-            <div>(097) 308-18-31</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <JobForm></JobForm>
 
     <div class="layout">
       <div class="row py-5">
@@ -54,70 +23,40 @@
           <div v-html="$t(`jobs.${jobId}.description`)"></div>
         </div>
         <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
-          <img src="~/assets/images/jobs/Kabelshchik.jpg" alt="Kabelshik" />
+          <img v-for="img in images"
+              :key="img" 
+              class="job-illustrations"
+              :src="require(`~/assets/images/jobs/${img}`)" 
+              :alt="$t(`jobs.${jobId}.name`)" />
         </div>
       </div>
     </div>
 
     <WorkSchema></WorkSchema>
 
-    <WhyWe></WhyWe>
+    <WhyWe :img="job.images[job.images.length - 1]"></WhyWe>
 
     <Reliability></Reliability>
 
     <div class="layout py-5">
       <div class="row px-0">
         <div class="col-12">
-          <h2 class="block-title mb-5">ВАМ БУДЕ ЦІКАВО</h2>
+          <h2 class="block-title mb-5">{{ $t('recomendations.title') }}</h2>
         </div>
 
-        <div class="col-3">
-          <a href="#" class="d-flex flex-column text-center">
+        <div class="col-6 col-md-3 mb-3" v-for="(r, i) in job.recomendations" :key="i">
+          <nuxt-link :to="localePath(r.url)" class="d-flex flex-column text-center">
             <img
-              src="~/assets/images/jobs/Kabelshchik.jpg"
+              :data-src="require(`~/assets/images/jobs/${r.image}`)"
+              v-lazy-load
               class="recomendation-image"
-              alt=""
+              :alt="$t(r.title)"
             />
 
-            <div class="mt-2 fs-6">Електротехнічна лабораторія</div>
-          </a>
+            <div class="mt-2 fs-6">{{ $t(r.title) }}</div>
+          </nuxt-link>
         </div>
 
-        <div class="col-3">
-          <a href="#" class="d-flex flex-column text-center">
-            <img
-              src="~/assets/images/jobs/Kabelshchik.jpg"
-              class="recomendation-image"
-              alt=""
-            />
-
-            <div class="mt-2 fs-6">Електротехнічна лабораторія</div>
-          </a>
-        </div>
-
-        <div class="col-3">
-          <a href="#" class="d-flex flex-column text-center">
-            <img
-              src="~/assets/images/jobs/Kabelshchik.jpg"
-              class="recomendation-image"
-              alt=""
-            />
-
-            <div class="mt-2 fs-6">Електротехнічна лабораторія</div>
-          </a>
-        </div>
-
-        <div class="col-3">
-          <a href="#" class="d-flex flex-column text-center">
-            <img
-              src="~/assets/images/jobs/Kabelshchik.jpg"
-              class="recomendation-image"
-              alt=""
-            />
-
-            <div class="mt-2 fs-6">Електротехнічна лабораторія</div>
-          </a>
-        </div>
       </div>
     </div>
 
@@ -128,11 +67,13 @@
 </template>
 
 <script>
+import JobForm from '~/components/service/job-form';
 import WorkSchema from '~/components/service/work-schema';
 import WhyWe from '~/components/service/why-we';
 import Reliability from '~/components/service/reliability';
 import PartnersCarousel from '~/components/partners-carousel';
 import FeedbackForm from '~/components/feedback-form';
+
 export default {
   components: {
     WorkSchema,
@@ -140,8 +81,15 @@ export default {
     Reliability,
     PartnersCarousel,
     FeedbackForm,
+    JobForm
   },
   computed: {
+    images() {
+      let r = this.job ? this.job.images.slice(2) : [];
+      r = [...r];
+      r.pop();
+      return r;
+    },
     jobId() {
       return this.$route.params.id;
     },
@@ -162,7 +110,15 @@ export default {
     width: 100%;
   }
 }
+.job-illustrations {
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  max-height: 250px;
+}
 .recomendation-image {
-  // width: 100%;
+  height: 180px;
+  width: 100%;
+  max-width: 300px;
+  object-fit: cover;
 }
 </style>

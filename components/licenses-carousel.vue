@@ -5,18 +5,19 @@
         class="item"
         v-for="item in 6"
         :key="item"
-        @click="toggleFullscreen(item)"
+        @click="activeImage = item"
       >
         <img
-          :src="require(`~/assets/images/license/license_${item}_full.png`)"
+          v-lazy-load
+          :data-src="require(`~/assets/images/license/license_${item}_full.png`)"
           class="item_preview"
           :alt="'license' + item"
         />
       </div>
     </VueSlickCarousel>
 
-    <div class="license_full" ref="licenseFull" style="display: none">
-      <img src="~/assets/images/license/license_1_full.png" alt="license 1" />
+    <div class="license_full" v-if="activeImage" @click="activeImage = null">
+      <img :src="require(`~/assets/images/license/license_${activeImage}_full.png`)" @click.stop alt="license 1" />
     </div>
   </div>
 </template>
@@ -28,6 +29,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
   data: () => ({
+    activeImage: null,
     settings: {
       arrows: false,
       dots: true,
@@ -66,17 +68,6 @@ export default {
     // Slide
     VueSlickCarousel,
   },
-  methods: {
-    toggleFullscreen(item) {
-      if (!this.isFullScreen) {
-        console.log(this.$refs.licenseFull)
-        this.$refs.licenseFull.children[0].attributes.src = `~/assets/images/license/license_${item}_full.png`
-        this.$$refs.style.display = 'flex'
-      } else {
-        this.$$refs.style.display = 'none'
-      }
-    },
-  },
 }
 </script>
 
@@ -89,6 +80,7 @@ export default {
     &_preview {
       width: 200px !important;
       margin: auto;
+      cursor: pointer;
     }
   }
 }

@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="container">
-            <div class="row my-4">
+            <div class="row my-4 justify-content-center justify-content-md-start">
                 <div class="col-12">
-                    <h2 class="block-title mb-4">{{service.name}}</h2>
+                    <h2 class="block-title mb-4">{{ $t(`services.${$route.params.id}`) }}</h2>
                 </div>
-                <div class="col-12 col-md-4 mt-3" v-for="(job, id) in service.jobs" :key="id">
+                <div class="col-8 col-md-4 mt-3" v-for="(job, id) in service.jobs" :key="id">
                     <Nuxt-link class="service-link" :to="`${service.url}/${id}`">
-                        <img :src="require(`~/assets/images/jobs/${job.images[0]}`)" :alt="job.name" />
+                        <img :data-src="require(`~/assets/images/jobs/${job.images[0]}`)" v-lazy-load :alt="job.name" />
                         <div>{{ $t(`jobs.${id}.name`) }}</div>
                     </Nuxt-link>
                 </div>
@@ -41,6 +41,12 @@ export default {
     &:hover {
         text-decoration: none;
         color: $c-blue;
+    }
+
+    img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
     }
 }
 </style>

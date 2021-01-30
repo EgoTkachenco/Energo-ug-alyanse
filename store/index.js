@@ -28,129 +28,539 @@ const state = () => ({
     },
     jobs: {
         // Id / serviceId / images / recomendations
+        // Аварійні роботи
         'remont-kl': {
-            serviceId: 'elektromontazhnye-raboty',
+            serviceId: 'avariynye-raboty',
             images: [
-                'Kabelshchik.jpg'
+                'remont-linij-1.jpg',
+                'remont-linij-2.jpg',
+                'remont-linij-3.jpg',
+                'remont-linij-4.jpg'
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'remont-setei-1.jpg',
+                    url: '/services/avariynye-raboty/avarijnyj-remont',
+                    title: 'jobs.avarijnyj-remont.name'
+                },
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-oborudovaniya-transformatornyh-podstanciy',
+                    title: 'jobs.remont-oborudovaniya-transformatornyh-podstanciy.name'
+                },
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                }
+            ]
         },
         'avarijnyj-remont': {
+            serviceId: 'avariynye-raboty',
+            images: [
+                'remont-setei-1.jpg',
+                'remont-setei-1.jpg',
+                'remont-setei-2.jpg',
+                'remont-setei-3.jpg',
+            ],
+            recomendations: [
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'remont-2.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-i-obsluzhivanie-silovyh-transformatorov',
+                    title: 'jobs.remont-i-obsluzhivanie-silovyh-transformatorov.name'
+                },
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-oborudovaniya-transformatornyh-podstanciy',
+                    title: 'jobs.remont-oborudovaniya-transformatornyh-podstanciy.name'
+                },
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                }
+            ]
+        },
+        
+        // Електротехнічні роботи
+        'montazh-vnutr-elektrosetei': {
             serviceId: 'elektromontazhnye-raboty',
             images: [
-                'Kabelshchik.jpg'
+                'remont-setei-3.jpg',
+                'montazh-1.jpg',
+                'montazh-6.png',
+                'montazh-7.png',
+                'montazh-8.png',
             ],
-            recomendations: []
-        },
-            
-        'montazh-vnutr-elektrosetei': {
-            serviceId: 'avariynye-raboty',
-            images: [
-                'Kabelshchik.jpg'
-            ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-1.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya/etl-04kv',
+                    title: 'jobs.etl-04kv.name'
+                },
+                {
+                    image: 'project-1.jpg',
+                    url: '/services/other/proektnye-raboty',
+                    title: 'jobs.proektnye-raboty.name'
+                },
+                
+                {
+                    image: 'montazh-4.jpg',
+                    url: '/services/elektromontazhnye-raboty/elektroschit',
+                    title: 'jobs.elektroschit.name'
+                },
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+            ]
         },
         'montag-vneshnikh-setei': {
-            serviceId: 'avariynye-raboty',
+            serviceId: 'elektromontazhnye-raboty',
             images: [
-                'Kabelshchik.jpg'
+                'montazh-2.jpg',
+                'job-back.png', 
+                'montazh-2.jpg',
+                'montazh.jpg',
+                'montazh-10.jpg'
+
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya/etl-10kv',
+                    title: 'jobs.etl-10kv.name'
+                },
+                {
+                    image: 'project-1.jpg',
+                    url: '/services/other/proektnye-raboty',
+                    title: 'jobs.proektnye-raboty.name'
+                },
+
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-oborudovaniya-transformatornyh-podstanciy',
+                    title: 'jobs.remont-oborudovaniya-transformatornyh-podstanciy.name'
+                },
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+            ]
         },
         'prokladka-kabelnih-liniy': {
-            serviceId: 'avariynye-raboty',
+            serviceId: 'elektromontazhnye-raboty',
             images: [
-                'Kabelshchik.jpg'
+                'montazh-3.jpg',
+                'montazh-3.jpg',
+                'prokladka-1.jpg',
+                'prokladka-2.jpg',
+                'prokladka-3.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'montazh-2.jpg',
+                    url: '/services/elektromontazhnye-raboty/montag-vneshnikh-setei',
+                    title: 'jobs.montag-vneshnikh-setei.name'
+                },
+
+                {
+                    image: 'remont-linij-1.jpg',
+                    url: '/services/avariynye-raboty/remont-kl',
+                    title: 'jobs.remont-kl.name'
+                },
+                {
+                    image: 'postavka.jpg',
+                    url: '/services/other/postavka',
+                    title: 'jobs.postavka.name'
+                },
+            ]
         },
         'elektroschit': {
-            serviceId: 'avariynye-raboty',
+            serviceId: 'elektromontazhnye-raboty',
             images: [
-                'Kabelshchik.jpg'
+                'montazh-4.jpg',
+                'montazh-4.jpg',
+                'vru.jpg',
+                'shitova.jpg',  
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'remont-setei-3.jpg',
+                    url: '/services/elektromontazhnye-raboty/montazh-vnutr-elektrosetei',
+                    title: 'services.montazh-vnutr-elektrosetei.name'
+                },
+                {
+                    image: 'remont-4.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-elektroshhitov',
+                    title: 'jobs.remont-elektroshhitov.name'
+                },
+
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+                {
+                    image: 'audit-1.jpg',
+                    url: '/services/other/audit_elektroobladnannya',
+                    title: 'jobs.audit_elektroobladnannya.name'
+                },
+            ]
         },
         'bliskavkozakhist': {
-            serviceId: 'avariynye-raboty',
+            serviceId: 'elektromontazhnye-raboty',
             images: [
-                'Kabelshchik.jpg'
+                'montazh-5.jpg',
+                'montazh-5.jpg',
+                'bliskavkozakhist-1.jpg',
+                'bliskavkozakhist-2.jpg',
+                'bliskavkozakhist-3.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-1.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya/etl-04kv',
+                    title: 'jobs.etl-04kv.name'
+                },
+                {
+                    image: 'project-1.jpg',
+                    url: '/services/other/proektnye-raboty',
+                    title: 'jobs.proektnye-raboty.name'
+                },
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+                {
+                    image: 'postavka.jpg',
+                    url: '/services/other/postavka',
+                    title: 'jobs.postavka.name'
+                },
+            ]
         },
 
+        // Лабораторія
         'etl-04kv': {
             serviceId: 'elektrotehnicheskaya-laboratoriya',
             images: [
-                'Kabelshchik.jpg'
+                'lab-1.jpg',
+                'lab-3.jpg',
+                'lab-4.jpg',
+                'lab-5.jpg',
+                'lab-1.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya/etl-10kv',
+                    title: 'jobs.etl-10kv.name'
+                },
+                {
+                    image: 'remont-setei-1.jpg',
+                    url: '/services/avariynye-raboty/avarijnyj-remont',
+                    title: 'jobs.avarijnyj-remont.name'
+                },
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+                {
+                    image: 'audit-1.jpg',
+                    url: '/services/other/audit_elektroobladnannya',
+                    title: 'jobs.audit_elektroobladnannya.name'
+                },
+            ]
         },
         'etl-10kv': {
             serviceId: 'elektrotehnicheskaya-laboratoriya',
             images: [
-                'Kabelshchik.jpg'
+                'lab-2.jpg',
+                'lab-6.jpg',
+                'lab-7.jpg',
+                'lab-8.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-1.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya/etl-04kv',
+                    title: 'jobs.etl-04kv.name'
+                },
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-oborudovaniya-transformatornyh-podstanciy',
+                    title: 'jobs.remont-oborudovaniya-transformatornyh-podstanciy.name'
+                },
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+                {
+                    image: 'audit-1.jpg',
+                    url: '/services/other/audit_elektroobladnannya',
+                    title: 'jobs.audit_elektroobladnannya.name'
+                },
+            ]
         },
 
+        // Ремонт і обслуговування
         'obsluzhivanie': {
             serviceId: 'remont-i-obslyzhuvanie',
             images: [
-                'Kabelshchik.jpg'
+                'remont-1.jpg',
+                'remont-1.jpg',
+                'remont-5.jpg',
+                'remont-6.jpg',
+                'remont-7.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-oborudovaniya-transformatornyh-podstanciy',
+                    title: 'jobs.remont-oborudovaniya-transformatornyh-podstanciy.name'
+                },
+                {
+                    image: 'remont-2.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-i-obsluzhivanie-silovyh-transformatorov',
+                    title: 'jobs.remont-i-obsluzhivanie-silovyh-transformatorov.name'
+                },
+                {
+                    image: 'audit-1.jpg',
+                    url: '/services/other/audit_elektroobladnannya',
+                    title: 'jobs.audit_elektroobladnannya.name'
+                },
+            ]
         },
         'remont-i-obsluzhivanie-silovyh-transformatorov': {
             serviceId: 'remont-i-obslyzhuvanie',
             images: [
-                'Kabelshchik.jpg'
+                'remont-2.jpg',
+                'remont-transformatora-3.jpg',
+                'remont-transformatora-7.jpg',
+                'remont-transformatora-1.jpg',
+                'remont-transformatora-2.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-oborudovaniya-transformatornyh-podstanciy',
+                    title: 'jobs.remont-oborudovaniya-transformatornyh-podstanciy.name'
+                },
+                {
+                    image: 'audit-1.jpg',
+                    url: '/services/other/audit_elektroobladnannya',
+                    title: 'jobs.audit_elektroobladnannya.name'
+                },
+            ]
         },
         'remont-oborudovaniya-transformatornyh-podstanciy': {
             serviceId: 'remont-i-obslyzhuvanie',
             images: [
-                'Kabelshchik.jpg'
+                'remont-3.jpg',
+                'remont-oborudovaniya-tp.jpg',
+                'remont-oborudovaniya-1.jpg',
+                'remont-oborudovaniya-2.jpg',
+                'remont-oborudovaniya-3.jpg',
+
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'remont-2.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-i-obsluzhivanie-silovyh-transformatorov',
+                    title: 'jobs.remont-i-obsluzhivanie-silovyh-transformatorov.name'
+                },
+                {
+                    image: 'audit-1.jpg',
+                    url: '/services/other/audit_elektroobladnannya',
+                    title: 'jobs.audit_elektroobladnannya.name'
+                },
+            ]
         },
         'remont-elektroshhitov': {
             serviceId: 'remont-i-obslyzhuvanie',
             images: [
-                'Kabelshchik.jpg'
+                'remont-4.jpg',
+                'remont-4.jpg',
+                'remont-oborudovaniya-4.jpg',
+                'remont-oborudovaniya-5.jpg',
+                'remont-oborudovaniya-6.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-1.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya/etl-04kv',
+                    title: 'jobs.etl-04kv.name'
+                },
+                {
+                    image: 'project-1.jpg',
+                    url: '/services/other/proektnye-raboty',
+                    title: 'jobs.proektnye-raboty.name'
+                },
+                {
+                    image: 'montazh-4.jpg',
+                    url: '/services/elektromontazhnye-raboty/elektroschit',
+                    title: 'jobs.elektroschit.name'
+                },
+                {
+                    image: 'postavka.jpg',
+                    url: '/services/other/postavka',
+                    title: 'jobs.postavka.name'
+                },
+            ]
         },
 
+        // Інші роботи
         'proektnye-raboty': {
             serviceId: 'other',
             images: [
-                'Kabelshchik.jpg'
+                'project-1.jpg',
+                'project-2.jpg',
+                'project-3.jpg',
+                'project-1.jpg'
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'lab-1.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya/etl-04kv',
+                    title: 'jobs.etl-04kv.name'
+                },
+                {
+                    image: 'remont-setei-3.jpg',
+                    url: '/services/elektromontazhnye-raboty/montazh-vnutr-elektrosetei',
+                    title: 'jobs.montazh-vnutr-elektrosetei.name'
+                },
+                {
+                    image: 'montazh-2.jpg',
+                    url: '/services/elektromontazhnye-raboty/montag-vneshnikh-setei',
+                    title: 'jobs.montag-vneshnikh-setei.name'
+                },
+                {
+                    image: 'montazh-5.jpg',
+                    url: '/services/elektromontazhnye-raboty/bliskavkozakhist',
+                    title: 'jobs.bliskavkozakhist.name'
+                },
+            ]
         },
         'postavka': {
             serviceId: 'other',
             images: [
-                'Kabelshchik.jpg'
+                'postavka.jpg',
+                'postavka.jpg',
+                'postavka-1.jpg',
+                'cable.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'project-1.jpg',
+                    url: '/services/other/proektnye-raboty',
+                    title: 'jobs.proektnye-raboty.name'
+                },
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie',
+                    title: 'services.remont-i-obslyzhuvanie'
+                },
+                {
+                    image: 'audit-1.jpg',
+                    url: '/services/elektromontazhnye-raboty',
+                    title: 'services.elektromontazhnye-raboty'
+                },
+            ]
         },
         'audit_elektroobladnannya': {
             serviceId: 'other',
             images: [
-                'Kabelshchik.jpg'
+                'audit-1.jpg',
+                'audit-1.jpg',
+                'lab-2.jpg',
+                'plans.jpg',
             ],
-            recomendations: []
+            recomendations: [
+                {
+                    image: 'remont-1.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/obsluzhivanie',
+                    title: 'jobs.obsluzhivanie.name'
+                },
+                {
+                    image: 'lab-2.jpg',
+                    url: '/services/elektrotehnicheskaya-laboratoriya',
+                    title: 'services.elektrotehnicheskaya-laboratoriya'
+                },
+                {
+                    image: 'remont-3.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-oborudovaniya-transformatornyh-podstanciy',
+                    title: 'jobs.remont-oborudovaniya-transformatornyh-podstanciy.name'
+                },
+                {
+                    image: 'remont-2.jpg',
+                    url: '/services/remont-i-obslyzhuvanie/remont-i-obsluzhivanie-silovyh-transformatorov',
+                    title: 'jobs.remont-i-obsluzhivanie-silovyh-transformatorov.name'
+                },
+            ]
         }
     },
     portfolio: [
+        // {
+        //     img: '15-Спутник.jpg',
+        //     name: 'portfolio.p-1.name',
+        //     description: 'portfolio.p-1.description'
+        // },
         {
             img: 'marmelad.jpg',
             name: 'ТЦ МАРМЕЛАД',
             description: 'Электроизмерительные работы. Ремонт и обслуживание оборудования ТП.'
-        }
+        },
+
     ]
 });
 

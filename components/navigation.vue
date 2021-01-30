@@ -17,19 +17,19 @@
         <i class="fa fa-envelope-o" aria-hidden="true"></i>
         <a href="mailto:">energougalyans@ukr.net</a>
       </div>
-      <div class="navigation-top__item lang">
+      <div class="navigation-top__item lang" 
+          :key="locale.code" 
+          v-for="locale in availableLocales">
         <div class="navigation-top__item__bg"></div>
-        <a href="#">
-          UA
-        </a>
-        <a href="#">
-          RU
-        </a>
+        
+        <nuxt-link
+          :title="locale.code + ' ' + $t('site-version')"
+          :to="switchLocalePath(locale.code)">{{ locale.code }}</nuxt-link>
       </div>
     </div>
 
     <nav class="navigation layout">
-      <div class="dropdown layout" v-if="isDropdownActive">
+      <div class="dropdown layout" v-if="isDropdownActive && !showMobileMenu">
         <div class="service-category" :key="c.id + i" v-for="(c, i) in categories">
           <nuxt-link :to="localePath(`/services/${c.id}`)" class="service-category__title">{{ $t(`services.${c.id}`) }}</nuxt-link>
           <div v-if="c.jobs">
@@ -47,12 +47,33 @@
         <span>{{ $t('company')}}</span>
       </nuxt-link>
 
-      <div class="navigation-content-right">
+      <div class="navigation-content-right" :class="{'active': showMobileMenu }">
         <nuxt-link :to="localePath('/')" class="navigation-link active">
           {{ $t('navigation.home')}}
         </nuxt-link>
-        <div class="navigation-link" @click="isDropdownActive = !isDropdownActive">
+        <div class="navigation-link" :class="{'active': isDropdownActive}" @click="isDropdownActive = !isDropdownActive">
           {{ $t('navigation.services')}}
+          <svg  
+            :class="{'rotate': isDropdownActive}"
+            xmlns="http://www.w3.org/2000/svg" 
+            class="ms-2" 
+            width="20" 
+            height="10" 
+            viewBox="0 0 451.847 451.847">
+            <path fill="#ffffff" d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751   c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0   c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+          </svg>
+        </div>
+        <div class="mob-services mt-2" :class="{'active': isDropdownActive && showMobileMenu }">
+          <div class="service-category" :key="c.id + i" v-for="(c, i) in categories">
+          <nuxt-link :to="localePath(`/services/${c.id}`)" class="service-category__title">{{ $t(`services.${c.id}`) }}</nuxt-link>
+          <div v-if="c.jobs">
+            <div :key="j" v-for="j in c.jobs">
+              <nuxt-link :to="localePath(`/services/${c.id}/${j}`)" class="service-job">
+                {{ $t(`jobs.${j}.name`) }}
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
         </div>
         <nuxt-link :to="localePath('/portfolio')" class="navigation-link">
           {{ $t('navigation.portfolio')}}
@@ -63,8 +84,14 @@
         <nuxt-link :to="localePath('/contacts')" class="navigation-link">
           {{ $t('navigation.contacts')}}
         </nuxt-link>
+        <a download href="/Каталог-послуг-ЕНЕРГОЮГ-АЛЬЯНС.pdf"  class="navigation-link download">
+          {{ $t('navigation.catalog') }}
+        </a>
       </div>
-      <button class="navigation-mobile-btn">
+      <button 
+        class="navigation-mobile-btn" 
+        :class="{'close': showMobileMenu }"
+        @click="showMobileMenu = !showMobileMenu">
         <span></span>
         <span></span>
         <span></span>
@@ -82,6 +109,7 @@ export default {
     categories: [],
     
     isDropdownActive: false,
+    showMobileMenu: false
   }),
   async fetch() {
     let categories = [];
@@ -94,7 +122,14 @@ export default {
   watch: {
     $route(to, from) {
       // Alternative navigation
+      this.showMobileMenu = false;
+      this.isDropdownActive = false;
       this.isBackground = this.pagesWithBackground.includes(to.name);
+    },
+    showMobileMenu(val) {
+      if(document) {
+        document.body.style.overflow = val ? 'hidden' : 'auto';
+      }
     }
   },
   created() {
@@ -120,10 +155,19 @@ export default {
       }
     },
   },
+  computed: {
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.rotate {
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
 .navigation-top {
   display: flex;
   align-items: flex-start;
@@ -160,27 +204,7 @@ export default {
 
     &.lang {
       position: relative;
-      a {
-        display: flex;
-        align-items: center;
-        transition: 0.5s all;
-
-        img {
-          margin-right: 5px;
-        }
-      }
-      & a:last-child {
-        position: absolute;
-        opacity: 0;
-        bottom: -16px;
-        left: 50%;
-        transform: translateX(-55%);
-      }
-      &:hover {
-        & a:last-child {
-          opacity: 1;
-        }
-      }
+      text-transform: uppercase;
     }
   }
 
@@ -258,14 +282,38 @@ export default {
       box-shadow: 0 2px 0 0 $c-white;
     }
 
-    &.nuxt-link-exact-active {
+    &.nuxt-link-exact-active, &.active {
       box-shadow: 0 2px 0 0 $c-blue;
     }
   }
 
   @media (max-width: $md) {
+    background: $c-dark-grey;
+
+    .navigation-link {
+      padding: $s-2 0;
+    }
+
     &-content-right {
       display: none;
+
+      &.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 100vh;
+        max-height: calc(100vh - 62px);
+        overflow: auto;
+        width: 100%;
+        background: $c-dark-grey;
+        margin-left: 0;
+        padding: $s-2 $s-4;
+
+        .service-category {
+          width: 100%;
+        }
+      }
     }
     &-mobile-btn {
       display: block;
@@ -330,6 +378,11 @@ export default {
   flex-wrap: wrap;
   flex-direction: column;
   max-height: 400px;
+
+  @media (max-width: $md) {
+    display: none;
+  }
+
 }
 .service-category {
   width: 22%;
@@ -340,6 +393,8 @@ export default {
   color: $c-white;
   font-size: $t-text;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
   &:hover {
     color: $c-blue;
     text-decoration: none;
@@ -348,12 +403,32 @@ export default {
 .service-job {
   color: $c-white;
   font-size: $t-caption;
-  padding-left: 2rem;
   display: block;
+  line-height: 120%;
+  margin-bottom: 1rem;
 
   &:hover {
     color: $c-blue;
     text-decoration: none;
   }
 }
+.mob-services {
+  flex-direction: column;
+  display: none;
+
+  .service-category__title {
+    font-size: 2rem;
+    padding: 2rem 0;
+    display: block;
+  }
+  .service-job {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    display: block;
+  }
+  &.active {
+    display: flex;
+  }
+}
+
 </style>

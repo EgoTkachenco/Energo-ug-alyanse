@@ -1,15 +1,15 @@
 <template>
   <div class="why-we">
     <div class="row justify-content-center mx-0">
-      <div class="col-8 col-md-5 px-0">
+      <div class="col-12 col-md-5 px-0">
         <img
-          src="~/assets/images/about_1.jpg"
+          :src="require(`~/assets/images/jobs/${img}`)"
           height="100%"
           alt="Advantages"
           class="illustration"
         />
       </div>
-      <div class="col-12 col-md-7 py-4 text-white d-flex flex-column">
+      <div class="col-12 col-sm-10 col-md-7 py-4 text-white d-flex flex-column">
         <h2 class="block-title">{{ $t('whywe.title') }}</h2>
         <div class="items-wrapper">
           <div class="d-flex align-items-center mt-3 mx-5">
@@ -52,10 +52,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  props: ['img']
+}
+</script>
 
 <style lang="scss" scoped>
 .why-we {
   background: $c-blue-gradient;
+
+  .illustration {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+  }
 
   .items-wrapper {
     display: flex;

@@ -5,59 +5,59 @@
     </h2>
     <VueSlickCarousel v-bind="settings">
       <div>
-        <img width="300" src="~/assets/images/partners/partner_1.jpg" alt="ВДНX" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_1.jpg" alt="ВДНX" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_2.jpg" alt="Жуляны" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_2.jpg" alt="Жуляны" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_3.jpg" alt="DATA Group" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_3.jpg" alt="DATA Group" />
       </div>
 
       <div>
-        <img width="300" src="~/assets/images/partners/partner_4.jpg" alt="BioFarma" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_4.jpg" alt="BioFarma" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_5.jpg" alt="ABInBev" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_5.jpg" alt="ABInBev" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_6.jpg" alt="Акко" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_6.jpg" alt="Акко" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_7.jpg" alt="CompassFM" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_7.jpg" alt="CompassFM" />
       </div>
       <div>
-        <img width="300"
-          src="~/assets/images/partners/partner_8.jpg"
+        <img width="300" v-lazy-load
+          data-src="~/assets/images/partners/partner_8.jpg"
           alt="Dyckerhoff Ukraine"
         />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_9.jpg" alt="Зоопарк Киев" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_9.jpg" alt="Зоопарк Киев" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_10.jpg" alt="OTIS" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_10.jpg" alt="OTIS" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_11.jpg" alt="Киянка" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_11.jpg" alt="Киянка" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_12.jpg" alt="НАУ" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_12.jpg" alt="НАУ" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_13.jpg" alt="Мармелад" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_13.jpg" alt="Мармелад" />
       </div>
       <div>
-        <img width="300"
-          src="~/assets/images/partners/partner_14.jpg"
+        <img width="300" v-lazy-load
+          data-src="~/assets/images/partners/partner_14.jpg"
           alt="Ukrspecexports"
         />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_15.jpg" alt="Eurasia" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_15.jpg" alt="Eurasia" />
       </div>
       <div>
-        <img width="300" src="~/assets/images/partners/partner_16.jpg" alt="PRIME" />
+        <img width="300" v-lazy-load data-src="~/assets/images/partners/partner_16.jpg" alt="PRIME" />
       </div>
     </VueSlickCarousel>
   </div>

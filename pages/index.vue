@@ -13,7 +13,7 @@
             Sorry, your browser doesn't support embedded videos,
             but don't worry, you can <a href="~/assets/videos/PowerLines.mp4">download it</a>
             and watch it with your favorite video player!
-            <source src="~/assets/videos/temp.mp4" type="video/mp4">
+            <source src="~/assets/videos/main-video.mp4" type="video/mp4">
             <!-- <source src="bg/daisy-stock-webm-video.webm" type="video/webm"> -->
       </video>
       <div class="page-header-inner">
@@ -21,8 +21,8 @@
          <h1 class="animate__animated animate__fadeIn animate__delay-1s">{{ $t('company')}}</h1>
          <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s">{{ $t('slogan')}}</div>
          <div class="page-header-btns animate__animated animate__fadeIn animate__delay-3s">
-            <a href="#" class="btn btn-outline-light btn-lg">{{ $t('navigation.contacts')}}</a>
-            <a href="#" class="btn btn-outline-light btn-lg ms-5">{{ $t('navigation.about')}}</a>
+            <nuxt-link :to="localePath('/contacts')" class="btn btn-outline-light btn-lg">{{ $t('navigation.contacts')}}</nuxt-link>
+            <nuxt-link :to="localePath('/about-business-point')" class="btn btn-outline-light btn-lg ms-5">{{ $t('navigation.about')}}</nuxt-link>
          </div>
       </div>
    </div>
@@ -39,7 +39,7 @@
                <br><br>
                {{ $t('aboutBlock.content_2') }}
             </div>
-            <a href="#" class="btn btn-secondary mt-5 mx-auto mx-md-0">Подробнее</a>
+            <nuxt-link :to="localePath('/about-business-point')" class="btn btn-secondary mt-5 mx-auto mx-md-0">Подробнее</nuxt-link>
          </div>
          <div class="col-12 col-md-5 order-1 order-md-2">
             <div class="about-image">

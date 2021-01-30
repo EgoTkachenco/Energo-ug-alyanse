@@ -2,12 +2,14 @@ export default {
     company: 'ЕНЕРГО ЮГ АЛЬЯНС',
     slogan: 'Перша інжинірингова компанія, що надає СЕРВІС!',
     more: 'Детальніше',
+    'site-version': 'Версія Сайту',
     navigation: {
         home: 'Головна',
         services: 'Послуги',
         portfolio: 'Портфоліо',
         about: 'Про компанію',
-        contacts: 'Контакти'
+        contacts: 'Контакти',
+        catalog: 'Завантажити каталог'
     },
     pages: {
         home: {
@@ -70,6 +72,9 @@ export default {
 
         time: 'Зручний час',
         time_description: 'Виконуємо роботи в зручний для вас час'
+    },
+    recomendations: {
+        title: 'ВАМ БУДЕ ЦІКАВО'
     },
     services: {
         'elektromontazhnye-raboty': 'Електромонтажні роботи',
@@ -398,6 +403,12 @@ export default {
                 <li>електрофурнітура та аксесуари</li>
             </ul>
             `
+        }
+    },
+    portfolio: {
+        "p-1": {
+            name: "КІНОТЕАТР СУПУТНИК",
+            description: "Електровимірювальні роботи. Електромонтажні роботи."
         }
     }
 }

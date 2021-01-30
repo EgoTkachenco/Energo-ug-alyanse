@@ -10,14 +10,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.2",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@nuxtjs/axios": "^5.12.2",
-    "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
-    "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.18.0",
+    "nuxt-lazy-load": "^1.2.4",
     "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
