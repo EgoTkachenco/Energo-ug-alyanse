@@ -80,7 +80,7 @@ export default {
           breakpoint: 1924,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToScroll: 1,
             infinite: true,
             dots: true,
           },
@@ -89,8 +89,7 @@ export default {
           breakpoint: 600,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2,
+            slidesToScroll: 1,
           },
         },
         {

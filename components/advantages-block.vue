@@ -9,14 +9,14 @@
         />
       </div>
       <div class="col d-flex flex-column align-items-center align-items-lg-start justify-content-center py-3">
-        <h2 class="mb-4 text-center text-md-left">НАШИ ПРЕИМУЩЕСТВА</h2>
+        <h2 class="mb-4 text-center text-md-left">{{ $t('advantagesBlock.title') }}</h2>
         <div class="advantages-block-list">
           <div class="advantages-block__item">
             <img
               src="~/assets/icons/handshake-icon.svg"
               alt="Более 500 довольных клиентов"
             />
-            <div>Более 500 довольных клиентов</div>
+            <div>{{ $t('advantagesBlock.1') }}</div>
           </div>
 
           <div class="advantages-block__item">
@@ -24,7 +24,7 @@
               src="~/assets/icons/five-icon.svg"
               alt="Работаем 5 лет на рынке"
             />
-            <div>Работаем 5 лет на рынке</div>
+            <div>{{ $t('advantagesBlock.2') }}</div>
           </div>
 
           <div class="advantages-block__item">
@@ -32,7 +32,7 @@
               src="~/assets/icons/delivery-truck-icon.svg"
               alt="Оперативный выезд и просчет"
             />
-            <div>Оперативный выезд и просчет</div>
+            <div>{{ $t('advantagesBlock.3') }}</div>
           </div>
 
           <div class="advantages-block__item">
@@ -40,7 +40,7 @@
               src="~/assets/icons/goal-icon.svg"
               alt="Опытный и обученный персонал"
             />
-            <div>Опытный и обученный персонал</div>
+            <div>{{ $t('advantagesBlock.4') }}</div>
           </div>
 
           <div class="advantages-block__item">
@@ -48,7 +48,7 @@
               src="~/assets/icons/guarantee-icon.svg"
               alt="Гарантия на выполненные работы"
             />
-            <div>Гарантия на выполненные работы</div>
+            <div>{{ $t('advantagesBlock.5') }}</div>
           </div>
 
           <div class="advantages-block__item">
@@ -56,7 +56,7 @@
               src="~/assets/icons/official-documents-icon.svg"
               alt="Наличие разрешительной документации"
             />
-            <div>Наличие разрешительной документации</div>
+            <div>{{ $t('advantagesBlock.6') }}</div>
           </div>
         </div>
       </div>

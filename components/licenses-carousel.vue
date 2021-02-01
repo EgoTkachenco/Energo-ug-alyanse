@@ -1,5 +1,8 @@
 <template>
-  <div class="layout py-5 licenses-carousel">
+  <div class="layout py-5 pt-0 licenses-carousel">
+    <h2 class="block-title mb-5" style="text-align:center;">
+        {{ $t('feedback.title') }}
+    </h2>
     <VueSlickCarousel v-bind="settings">
       <div
         class="item"
@@ -38,7 +41,7 @@ export default {
           breakpoint: 1920,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToScroll: 1,
             infinite: true,
             dots: true,
           },
@@ -47,8 +50,7 @@ export default {
           breakpoint: 600,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2,
+            slidesToScroll: 1,
           },
         },
         {

@@ -5,9 +5,9 @@
                 {{ $t('footer.work-time') }}
                 <br>
                 <br>
-                <a href="tel:+380506582777">+38(050) 658-27-77</a>
+                <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
                 <br>
-                <a href="tel:+380973081831">+38(097) 308-18-31</a>
+                <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
                 <br>
                 <br>
                 <nuxt-link to="/privacy-policy"><b><em>{{ $t('footer.privacy-policy') }}</em></b></nuxt-link>
@@ -15,8 +15,6 @@
             <div class="col-10 col-md-4 order-2 py-3 py-md-0">
                 <address>{{ $t('footer.address') }}</address>
                 <a href="mailto:energougalyans@ukr.net">energougalyans@ukr.net</a>
-                <br>
-                <a href="tel:+380442219189">+38 (044) 221-91-89</a>
             </div>
             <div class="col-12 col-md-4  order-1 order-md-3">
                 <div class="footer-logo">

@@ -5,24 +5,22 @@
     :class="{ 'hide-top': navigationHideTop || isDropdownActive, background: isBackground }"
   >
     <div class="navigation-top layout">
-      <div class="navigation-top__item">
+      <div class="navigation-top__item phones">
         <div class="navigation-top__item__bg"></div>
-        <i class="fa fa-phone" aria-hidden="true"></i>
-        <a href="tel:+380442219189">+38 (044) 221-91-89</a>
+        <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
+        <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
       </div>
       <div class="navigation-top__item">
         <div class="navigation-top__item__bg"></div>
         <i class="fa fa-envelope-o" aria-hidden="true"></i>
         <a href="mailto:">energougalyans@ukr.net</a>
       </div>
-      <div class="navigation-top__item lang" 
-          :key="locale.code" 
-          v-for="locale in availableLocales">
+      <div class="navigation-top__item lang">
         <div class="navigation-top__item__bg"></div>
         
         <nuxt-link
-          :title="locale.code + ' ' + $t('site-version')"
-          :to="switchLocalePath(locale.code)">{{ locale.code }}</nuxt-link>
+          :title="($i18n.locale === 'uk' ? 'ru' : 'uk') + ' ' + $t('site-version')"
+          :to="switchLocalePath($i18n.locale === 'uk' ? 'ru' : 'uk')">{{ $i18n.locale }}</nuxt-link>
       </div>
     </div>
 
@@ -96,13 +94,13 @@
           {{ $t('navigation.catalog') }}
         </a>
          <div class="navigation__mob-phones">
-          <a href="tel:+380442219189">+38 (044) 221-91-89</a>
-          <a href="tel:+380442219189">+38 (044) 221-91-89</a>
+          <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
+          <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
         </div>
       </div>
       <div class="navigation__phones">
-        <a href="tel:+380442219189">+38 (044) 221-91-89</a>
-        <a href="tel:+380442219189">+38 (044) 221-91-89</a>
+        <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
+        <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
       </div>
       <button 
         class="navigation-mobile-btn" 
@@ -209,6 +207,7 @@ export default {
     padding: $s-2;
     position: relative;
     margin-left: $s-2;
+    height: 56px;
 
     &__bg {
       position: absolute;
@@ -234,6 +233,16 @@ export default {
     &.lang {
       position: relative;
       text-transform: uppercase;
+    }
+
+    &.phones {
+      padding: 8px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      a {
+        line-height: 100%;
+      }
     }
   }
 

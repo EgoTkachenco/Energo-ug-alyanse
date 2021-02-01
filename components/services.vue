@@ -1,14 +1,14 @@
 <template>
   <div class="container-fluid">
-    <section class="row services py-5">
+    <section class="row services py-5 justify-content-center">
     <div class="col-12 mb-4">
       <div><h2 class="text-center">{{ $t('servicesBlock.title') }}</h2></div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4" v-for="(service, id) in services" :key="id">
+    <div class="col-12 col-md-6 col-lg-4 mt-2" v-for="(service, id) in services" :key="id">
       <Nuxt-link class="services-item" :to="service.url">
         <img
           width="150"
-          :src="require(`~/assets/icons/${service.icon}-icon.svg`)"
+          :src="require(`~/assets/icons/${service.icon}.svg`)"
           :alt="service.name"
         />
         <h3 class="mt-2 px-5">{{ $t(`services.${id}`) }}</h3>
@@ -54,7 +54,8 @@ export default {
     transition: 0.5s all;
   }
   img {
-   max-width: 100px;
+  //  max-width: 80px;
+   height: 90px;
   }
 
   &:hover {

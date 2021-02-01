@@ -11,7 +11,7 @@
         <div class="page-header-job__subtitle mt-5 animate__animated animate__fadeIn animate__delay-1s" 
           v-html="$t(`jobs.${jobId}.subtitle`)">
         </div>
-        <button @click="toForm" class="page-header-job__btn animate__animated animate__fadeIn animate__delay-1s">Подати Заявку</button>
+        <button @click="toForm" class="page-header-job__btn animate__animated animate__fadeIn animate__delay-1s">{{ $t('actionTitle') }}</button>
       </div>
     </div>
 
@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     toForm() {
-      window.scrollBy(0, window.screen.height - 62 - window.scrollY);
+      window.scrollBy(0, window.screen.availHeight - 145 - window.scrollY);
     }
   },
   computed: {
@@ -181,11 +181,42 @@ export default {
     padding: 1rem 2rem;
     border: 0;
     border-radius: 5px;
-    background: $c-blue-gradient;
+    background: rgb(99,134,202);
+    background: linear-gradient(90deg, rgba(99,134,202,1) 0%, rgba(140,197,241,1) 0%, rgba(99,134,202,1) 100%);
     color: $c-white;
     display: inline-block;
     margin: 2rem auto;
     font-size: 1.25em;
+
+    background: linear-gradient(-45deg, rgba(99,134,202,1),  rgba(140,197,241,1),  rgba(99,134,202,1), #23649a);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+        transform: scale(1, 1);
+      }
+      50% {
+        background-position: 100% 50%;
+        transform: scale(1.1, 1.1);
+      }
+      100% {
+        background-position: 0% 50%;
+        transform: scale(1, 1);
+      }
+    }
+    // @keyframes actionBtn {
+    //   0% {
+    //     background: linear-gradient(90deg, rgba(99,134,202,1) 0%, rgba(140,197,241,1) 0%, rgba(99,134,202,1) 100%);
+    //   }
+    //   50%{
+    //     background: linear-gradient(90deg, rgba(99,134,202,1) 0%, rgba(140,197,241,1) 50%, rgba(99,134,202,1) 100%);
+    //   }
+    //   100% {
+    //     background: linear-gradient(90deg, rgba(99,134,202,1) 0%, rgba(140,197,241,1) 100%, rgba(99,134,202,1) 100%);
+    //   }
+    // }
 
     @media (max-width: 800px) {
       max-width: 100%;

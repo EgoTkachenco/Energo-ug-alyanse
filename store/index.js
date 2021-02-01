@@ -1,27 +1,34 @@
 const state = () => ({
+    contacts: {
+        number_1: '+38(050) 658-27-77',
+        number_1_call: '0506582777',
+        number_2: '+38(097) 308-18-31',
+        number_2_call: '0973081831',
+        email: 'energougalyans@ukr.net'
+    },
     services: {
         'elektromontazhnye-raboty': {
-            icon: 'power-tower',
+            icon: 'services/power',
             url: '/services/elektromontazhnye-raboty',
             jobs: ['montazh-vnutr-elektrosetei', 'montag-vneshnikh-setei', 'prokladka-kabelnih-liniy', 'elektroschit', 'bliskavkozakhist']
         },
         'avariynye-raboty': {
-            icon: 'electrical-sign',
+            icon: 'services/montazh',
             url: '/services/avariynye-raboty',
             jobs: ['remont-kl', 'avarijnyj-remont']
         },
         'elektrotehnicheskaya-laboratoriya': {
-            icon: 'multimeter',
+            icon: 'services/ammeter',
             url: '/services/elektrotehnicheskaya-laboratoriya',
             jobs: ['etl-04kv', 'etl-10kv']
         },
         'remont-i-obslyzhuvanie': {
-            icon: 'transformer',
+            icon: 'services/remont',
             url: '/services/remont-i-obslyzhuvanie',
             jobs: ['obsluzhivanie', 'remont-i-obsluzhivanie-silovyh-transformatorov', 'remont-oborudovaniya-transformatornyh-podstanciy', 'remont-elektroshhitov']
         },
         'other': {
-            icon: 'house',
+            icon: 'services/worker',
             url: '/services/other',
             jobs: ['proektnye-raboty', 'postavka', 'audit_elektroobladnannya']
         },
