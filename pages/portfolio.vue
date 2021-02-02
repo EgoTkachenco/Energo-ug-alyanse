@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  scrollToTop: true,
   head() {
     return {
       title: `${this.$t('pages.portfolio.p_title')}`,

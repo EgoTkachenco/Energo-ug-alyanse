@@ -1,14 +1,14 @@
 <template>
 <div class="container py-5">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="font-size: 1.25rem;">
         <div class="col-12 col-md-10 text-center">
             <h2 class="block-title mb-5">{{ $t('pages.contacts.title') }}</h2>
         </div>
-        <div class="col-6 col-md-5">
+        <div class="col-8 col-md-5 text-center text-md-start">
             <a href="tel:0506582777">+38(050) 658-27-77</a> <br>
             <a href="tel:0506582777">+38(050) 658-27-77</a> <br>
         </div>
-        <div class="col-6 col-md-5">
+        <div class="col-8 col-md-5 text-center text-md-end">
             <a href="mailto:energougalyans@ukr.net">energougalyans@ukr.net</a>
             <address>{{ $t('footer.address') }}</address>
         </div>
@@ -19,7 +19,6 @@
                 width="100%"
                 height="100%"
                 frameborder="0"
-                style="border: 0; min-height: 250px;"
                 allowfullscreen=""
                 aria-hidden="false"
                 tabindex="0"
@@ -31,6 +30,7 @@
 
 <script>
 export default {
+  scrollToTop: true,
   head() {
     return {
       title: `${this.$t('pages.contacts.p_title')}`,
@@ -45,3 +45,12 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.feedback-form-map {
+  min-height: 500px;
+  @media(max-width: $md) {
+    min-height: 250px;
+  }
+}
+</style>

@@ -30,6 +30,7 @@
 import FeedbackForm from '../components/feedback-form';
 
 export default {
+  scrollToTop: true,
   head() {
     return {
       title: `${this.$t('pages.about.p_title')}`,

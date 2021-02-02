@@ -16,11 +16,9 @@
                 <address>{{ $t('footer.address') }}</address>
                 <a href="mailto:energougalyans@ukr.net">energougalyans@ukr.net</a>
             </div>
-            <div class="col-12 col-md-4  order-1 order-md-3">
+            <div class="col-8 col-md-4  order-1 order-md-3">
                 <div class="footer-logo">
                     <img src="~/assets/images/logo-white.svg" class="mb-2" alt="logo">
-                    <br>
-                    <b>{{ $t('company') }}</b>
                     <br>
                     {{ $t('slogan') }}
                 </div>

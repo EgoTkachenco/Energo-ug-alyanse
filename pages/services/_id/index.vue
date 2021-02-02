@@ -18,6 +18,7 @@
 
 <script>
 export default {
+    scrollToTop: true,
     head() {
         return {
         title: `${this.$t(`services.${this.$route.params.id}`)} - ${this.$t(`company`)}`,

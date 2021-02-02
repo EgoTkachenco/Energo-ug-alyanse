@@ -8,6 +8,7 @@
          autoplay="autoplay" 
          loop="loop" 
          muted="muted" 
+         poster="~/assets/images/mobile-back.jpg"
          width="100%" 
          height="500px">
             Sorry, your browser doesn't support embedded videos,
@@ -16,11 +17,12 @@
             <source src="~/assets/videos/main-video.mp4" type="video/mp4">
             <!-- <source src="bg/daisy-stock-webm-video.webm" type="video/webm"> -->
       </video>
+      <div class="page-header__mob-bg"></div>
       <div class="page-header-inner">
-         <div class="flex-grow-1"></div>   
-         <h1 class="animate__animated animate__fadeIn animate__delay-1s">{{ $t('company')}}</h1>
-         <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-3s">{{ $t('slogan')}}</div>
-         <div class="page-header-btns animate__animated animate__fadeIn animate__delay-3s">
+         <!-- <div class="flex-grow-1"></div>    -->
+         <h1 class="animate__animated animate__fadeIn">{{ $t('company')}}</h1>
+         <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-1s">{{ $t('slogan')}}</div>
+         <div class="page-header-btns animate__animated animate__fadeIn animate__delay-1s">
             <nuxt-link :to="localePath('/contacts')" class="btn btn-outline-light btn-lg">{{ $t('navigation.contacts')}}</nuxt-link>
             <nuxt-link :to="localePath('/about-business-point')" class="btn btn-outline-light btn-lg ms-5">{{ $t('navigation.about')}}</nuxt-link>
          </div>
@@ -39,7 +41,7 @@
                <br><br>
                {{ $t('aboutBlock.content_2') }}
             </div>
-            <nuxt-link :to="localePath('/about-business-point')" class="btn btn-secondary mt-5 mx-auto mx-md-0">Подробнее</nuxt-link>
+            <nuxt-link :to="localePath('/about-business-point')" class="btn btn-secondary mt-5 mx-auto mx-md-0">{{ $t('aboutBlock.more') }}</nuxt-link>
          </div>
          <div class="col-12 col-md-5 order-1 order-md-2">
             <div class="about-image">
@@ -50,8 +52,6 @@
    </div>
 
    <Advantages></Advantages>
-
-   
 
    <PartnersCarousel></PartnersCarousel>
    <LicensesCarousel></LicensesCarousel>
@@ -68,6 +68,7 @@ import PartnersCarousel from '../components/partners-carousel'
 import FeedbackForm from '../components/feedback-form'
 
 export default {
+  scrollToTop: true,
   head() {
     return {
       title: `${this.$t('pages.home.p_title')}`,

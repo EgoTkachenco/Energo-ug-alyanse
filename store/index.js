@@ -12,16 +12,6 @@ const state = () => ({
             url: '/services/elektromontazhnye-raboty',
             jobs: ['montazh-vnutr-elektrosetei', 'montag-vneshnikh-setei', 'prokladka-kabelnih-liniy', 'elektroschit', 'bliskavkozakhist']
         },
-        'avariynye-raboty': {
-            icon: 'services/montazh',
-            url: '/services/avariynye-raboty',
-            jobs: ['remont-kl', 'avarijnyj-remont']
-        },
-        'elektrotehnicheskaya-laboratoriya': {
-            icon: 'services/ammeter',
-            url: '/services/elektrotehnicheskaya-laboratoriya',
-            jobs: ['etl-04kv', 'etl-10kv']
-        },
         'remont-i-obslyzhuvanie': {
             icon: 'services/remont',
             url: '/services/remont-i-obslyzhuvanie',
@@ -32,6 +22,18 @@ const state = () => ({
             url: '/services/other',
             jobs: ['proektnye-raboty', 'postavka', 'audit_elektroobladnannya']
         },
+        'elektrotehnicheskaya-laboratoriya': {
+            icon: 'services/ammeter',
+            url: '/services/elektrotehnicheskaya-laboratoriya',
+            jobs: ['etl-04kv', 'etl-10kv']
+        },
+        'avariynye-raboty': {
+            icon: 'services/montazh',
+            url: '/services/avariynye-raboty',
+            jobs: ['remont-kl', 'avarijnyj-remont']
+        },
+        
+        
     },
     jobs: {
         // Id / serviceId / images / recomendations
@@ -557,11 +559,11 @@ const state = () => ({
         }
     },
     portfolio: [
-        // {
-        //     img: '15-Спутник.jpg',
-        //     name: 'portfolio.p-1.name',
-        //     description: 'portfolio.p-1.description'
-        // },
+        {
+            img: '15-Спутник.jpg',
+            name: 'portfolio.p-1.name',
+            description: 'portfolio.p-1.description'
+        },
         {
             img: 'marmelad.jpg',
             name: 'ТЦ МАРМЕЛАД',

@@ -23,13 +23,14 @@
           <h2 class="block-title mb-5">{{ $t(`jobs.${jobId}.name`) }}</h2>
           <div v-html="$t(`jobs.${jobId}.description`)"></div>
         </div>
-        <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
-          <img v-for="img in images"
+        <div class="col-12 col-md-6 d-flex">
+          <div class="d-flex flex-column m-auto justify-content-center" style="max-height: 500px">
+            <img v-for="img in images"
               :key="img" 
-              :style="{maxHeight: images.lenght > 1 ? '250px' : '600px'}"
               class="job-illustrations"
               :src="require(`~/assets/images/jobs/${img}`)" 
               :alt="$t(`jobs.${jobId}.name`)" />
+          </div>
         </div>
       </div>
     </div>

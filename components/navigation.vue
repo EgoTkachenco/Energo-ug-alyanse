@@ -47,7 +47,7 @@
       </nuxt-link>
 
       <div class="navigation-content-right" :class="{'active': showMobileMenu }">
-        <nuxt-link :to="localePath('/')" class="navigation-link active">
+        <nuxt-link :to="localePath('/')" class="navigation-link">
           {{ $t('navigation.home')}}
         </nuxt-link>
         <div 
@@ -349,13 +349,19 @@ export default {
 
     .navigation-link {
       padding: $s-2 0;
+      font-size: 1.75rem;
+
+    }
+    .download {
+      margin-bottom: 32px;
     }
 
     &-content-right {
       display: none;
 
       &.active {
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
@@ -377,7 +383,9 @@ export default {
     }
     &__mob-phones{
       display: flex; 
-      flex-direction: column;
+      margin-top: auto;
+      padding-bottom: 16px;
+      justify-content: space-between;
       a {
         color: $c-white;
       }
@@ -447,18 +455,20 @@ export default {
   background: $c-dark-grey;
   // max-height: 50vh;
   flex-wrap: wrap;
-  flex-direction: column;
-  max-height: 400px;
-
+  height: 100vh;
+  padding-bottom: 15%;
+  align-items: flex-start;
+  align-content: flex-start;
   @media (max-width: $md) {
     display: none;
   }
 
 }
 .service-category {
-  width: 22%;
+  width: 30%;
   margin-bottom: $s-2;
   font-weight: normal;
+  padding-right: 32px;
 }
 .service-category__title {
   color: $c-white;
@@ -476,10 +486,11 @@ export default {
   font-size: $t-caption;
   display: block;
   line-height: 120%;
-  margin-bottom: 1rem;
+  opacity: 0.5;
 
   &:hover {
-    color: $c-blue;
+    opacity: 1;
+    // color: $c-blue;
     text-decoration: none;
   }
 }
@@ -488,13 +499,13 @@ export default {
   display: none;
 
   .service-category__title {
-    font-size: 2rem;
-    padding: 2rem 0;
+    font-size: 1.5rem;
+    padding: 1rem 0;
     display: block;
   }
   .service-job {
-    font-size: 1.5rem;
-    padding: 1rem 0;
+    font-size: 1rem;
+    padding: 0.5rem 0;
     display: block;
   }
   &.active {

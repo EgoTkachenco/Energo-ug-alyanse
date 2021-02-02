@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  scrollToTop: true,
   head() {
     return {
       title: `${this.$t('pages.privacy-policy.p_title')}`,
