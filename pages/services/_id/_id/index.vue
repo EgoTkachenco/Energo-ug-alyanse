@@ -11,6 +11,24 @@
         <div class="page-header-job__subtitle mt-5 animate__animated animate__fadeIn animate__delay-1s" 
           v-html="$t(`jobs.${jobId}.subtitle`)">
         </div>
+        <div v-if="jobId === 'montazh-vnutr-elektrosetei'" class="header-block-list">
+          <div class="header-block-list__item" @click="toForm">
+            {{ $t(`jobs.${jobId}.blocks.0`) }}
+          </div>
+          <div class="header-block-list__item" @click="toForm">
+            {{ $t(`jobs.${jobId}.blocks.1`) }}
+          </div>
+          <div class="header-block-list__item" @click="toForm">
+            {{ $t(`jobs.${jobId}.blocks.2`) }}
+          </div>
+          <div class="header-block-list__item" @click="toForm">
+            {{ $t(`jobs.${jobId}.blocks.3`) }}
+          </div>
+          <div class="header-block-list__item" @click="toForm">
+            {{ $t(`jobs.${jobId}.blocks.4`) }}
+          </div>
+          
+        </div>
         <button @click="toForm" class="page-header-job__btn animate__animated animate__fadeIn animate__delay-1s">{{ $t('actionTitle') }}</button>
       </div>
     </div>
@@ -83,7 +101,7 @@ export default {
         {
         hid: 'description',
         name: 'description',
-        content: `${this.$t('pages.jobs.p_description')}`,
+        content: `${this.$t(`jobs.${this.jobId}.subtitle`)}`,
         },
       ],
     }
@@ -98,7 +116,7 @@ export default {
   },
   methods: {
     toForm() {
-      window.scrollBy(0, window.screen.availHeight - 145 - window.scrollY);
+      window.scrollBy(0, window.screen.availHeight - 31 - window.scrollY);
     }
   },
   computed: {
@@ -207,17 +225,6 @@ export default {
         transform: scale(1, 1);
       }
     }
-    // @keyframes actionBtn {
-    //   0% {
-    //     background: linear-gradient(90deg, rgba(99,134,202,1) 0%, rgba(140,197,241,1) 0%, rgba(99,134,202,1) 100%);
-    //   }
-    //   50%{
-    //     background: linear-gradient(90deg, rgba(99,134,202,1) 0%, rgba(140,197,241,1) 50%, rgba(99,134,202,1) 100%);
-    //   }
-    //   100% {
-    //     background: linear-gradient(90deg, rgba(99,134,202,1) 0%, rgba(140,197,241,1) 100%, rgba(99,134,202,1) 100%);
-    //   }
-    // }
 
     @media (max-width: 800px) {
       max-width: 100%;
@@ -260,6 +267,47 @@ export default {
       margin-top: 1.5rem;
     }
     text-decoration: none;
+  }
+}
+.header-block-list {
+  display: flex;
+  justify-content: space-around;
+  margin: 32px 0 64px;
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 2px solid #6386ca;
+    background: $c-light-blue;
+    cursor: pointer;
+    // background: linear-gradient(90deg, #8cc5f1 0%, #6386ca 0%, #8cc5f1 100%);
+    color: $c-white;
+
+    max-width: 250px;
+
+    &:hover {
+      background: linear-gradient(-45deg, rgba(99,134,202,1),  rgba(140,197,241,1),  rgba(99,134,202,1), #23649a);
+      background-size: 400% 400%;
+      animation: gradient 3s ease infinite;
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+          transform: scale(1, 1);
+        }
+        50% {
+          background-position: 100% 50%;
+          transform: scale(1.1, 1.1);
+        }
+        100% {
+          background-position: 0% 50%;
+          transform: scale(1, 1);
+        }
+      }
+    }
+
   }
 }
 </style>

@@ -2,14 +2,14 @@
   <div>
     <div class="container py-5">
       <div class="row">
-        <div class="col-12 col-md-4" v-for="item in portfolio">
+        <div class="col-12 col-md-4 d-flex justify-content-center px-2" v-for="item in portfolio">
           <div
-            class="portfolio-item"
+            class="portfolio-item my-2"
             :style="`background-image: url(${require(`~/assets/images/portfolio/${item.img}`)});`"
           >
             <div class="portfolio-item-content">
-              <h3>{{ item.name }}</h3>
-              <div class="description">{{ item.description }}</div>
+              <h3>{{ $t(item.name) }}</h3>
+              <div class="description">{{ $t(item.description) }}</div>
             </div>
           </div>
         </div>

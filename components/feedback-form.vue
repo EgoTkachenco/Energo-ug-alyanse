@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import{ init, send } from 'emailjs-com';
+init("user_RXzx7vL8DTPW5Li2pzQGI");
 export default {
   data: () => ({
       isSubmited: false,
@@ -81,18 +83,16 @@ export default {
       this.$fire.firestore.collection("feedbacks").add(form)
         .then(() => {
           this.isSubmited = true;
-          // this.$mail.send({
-          //   from: 'John Doe',
-          //   subject: 'Incredible',
-          //   text: 'This is an incredible test message',
-          //   to: 'egortkachenco@gmail.com',
-          // })
+          this.sendEmail(form);
         })
         .catch((error) => {
           console.error("Error adding document: ", error);
         });
       
     },
+    sendEmail(form) {
+      send('service_g6enitd', 'template_ud3nbuj', {from: 'SITE', html: `Name: ${form.name}, phone: ${form.phone}`}, 'user_RXzx7vL8DTPW5Li2pzQGI');
+    }
   },
 }
 </script>

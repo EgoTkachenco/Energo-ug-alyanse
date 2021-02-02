@@ -560,15 +560,81 @@ const state = () => ({
     },
     portfolio: [
         {
-            img: '15-Спутник.jpg',
+            img: 'spytnik.jpg',
             name: 'portfolio.p-1.name',
             description: 'portfolio.p-1.description'
         },
         {
-            img: 'marmelad.jpg',
-            name: 'ТЦ МАРМЕЛАД',
-            description: 'Электроизмерительные работы. Ремонт и обслуживание оборудования ТП.'
+            img: 'kubik.jpg',
+            name: 'portfolio.p-2.name',
+            description: 'portfolio.p-2.description'
         },
+        {
+            img: 'cherry-town.jpg',
+            name: 'portfolio.p-3.name',
+            description: 'portfolio.p-3.description'
+        },
+        {
+            img: 'compass.jpg',
+            name: 'portfolio.p-4.name',
+            description: 'portfolio.p-4.description'
+        },
+        {
+            img: 'zhulyanu.jpg',
+            name: 'portfolio.p-5.name',
+            description: 'portfolio.p-5.description'
+        },
+        {
+            img: 'AKKO.jpg',
+            name: 'portfolio.p-6.name',
+            description: 'portfolio.p-6.description'
+        },
+        {
+            img: 'Radio.jpg',
+            name: 'portfolio.p-7.name',
+            description: 'portfolio.p-7.description'
+        },
+        {
+            img: 'prime.jpg',
+            name: 'portfolio.p-8.name',
+            description: 'portfolio.p-8.description'
+        },
+        {
+            img: 'VDNH.jpg',
+            name: 'portfolio.p-9.name',
+            description: 'portfolio.p-9.description'
+        },
+        {
+            img: 'evrasia.jpg',
+            name: 'portfolio.p-10.name',
+            description: 'portfolio.p-10.description'
+        },
+        {
+            img: 'medvedya.jpg',
+            name: 'portfolio.p-11.name',
+            description: 'portfolio.p-11.description'
+        },
+        {
+            img: 'smart-house.jpg',
+            name: 'portfolio.p-12.name',
+            description: 'portfolio.p-12.description'
+        },
+        {
+            img: 'promenada.jpg',
+            name: 'portfolio.p-13.name',
+            description: 'portfolio.p-13.description'
+        },
+        {
+            img: 'marmelad.jpg',
+            name: 'portfolio.p-14.name',
+            description: 'portfolio.p-14.description'
+        },
+        {
+            img: 'igl.jpg',
+            name: 'portfolio.p-15.name',
+            description: 'portfolio.p-15.description'
+        },
+        
 
     ]
 });

@@ -9,6 +9,9 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Meta description' }
     ],
+    scripts: [
+      { hid: 'smtp', src: "//smtpjs.com/v3/smtp.js", defer: true}
+    ],
     link: [
       { rel: 'icon', sizes: '32x32', type: 'image/png', href: '/favicon.png' },
       { rel: 'icon', sizes: '192x192', type: 'image/png', href: '/favicon.png' },
@@ -17,7 +20,8 @@ export default {
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap", },
       { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", },
       { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"}
-    ]
+    ], 
+    
   }, 
   
   // Global CSS (https://go.nuxtjs.dev/config-css)
