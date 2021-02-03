@@ -125,7 +125,7 @@ export default {
     ],
     categories: [],
     
-    isDropdownActive: false,
+    isDropdownActive: true,
     showMobileMenu: false,
     collapseTimeout: null
   }),
@@ -455,8 +455,7 @@ export default {
   background: $c-dark-grey;
   // max-height: 50vh;
   flex-wrap: wrap;
-  height: 100vh;
-  padding-bottom: 15%;
+  padding-bottom: 2rem;
   align-items: flex-start;
   align-content: flex-start;
   @media (max-width: $md) {
@@ -465,7 +464,7 @@ export default {
 
 }
 .service-category {
-  width: 30%;
+  width: calc(100% / 3);
   margin-bottom: $s-2;
   font-weight: normal;
   padding-right: 32px;
@@ -474,7 +473,7 @@ export default {
   color: $c-white;
   font-size: $t-text;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   display: block;
   &:hover {
     color: $c-blue;
@@ -487,6 +486,7 @@ export default {
   display: block;
   line-height: 120%;
   opacity: 0.5;
+  margin-bottom: 0.75rem;
 
   &:hover {
     opacity: 1;

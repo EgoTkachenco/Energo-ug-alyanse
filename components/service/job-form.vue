@@ -7,7 +7,7 @@
         @submit.prevent.stop="handleForm"
       >
         <div class="col-12 col-md-4 text-center text-md-start">
-          {{ $t('formBlock.title') }}
+          <b>{{ $t('formBlock.title') }}</b>
         </div>
         <div class="col-8 col-md-2">
           <label for="name" class="form-label">{{

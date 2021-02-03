@@ -24,7 +24,7 @@
          <div class="page-header__subtitle mt-5 animate__animated animate__fadeIn animate__delay-1s">{{ $t('slogan')}}</div>
          <div class="page-header-btns animate__animated animate__fadeIn animate__delay-1s">
             <nuxt-link :to="localePath('/contacts')" class="btn btn-outline-light btn-lg">{{ $t('navigation.contacts')}}</nuxt-link>
-            <nuxt-link :to="localePath('/about-business-point')" class="btn btn-outline-light btn-lg ms-5">{{ $t('navigation.about')}}</nuxt-link>
+            <nuxt-link :to="localePath('/about-business-point')" class="btn btn-outline-light btn-lg ms-4">{{ $t('navigation.about')}}</nuxt-link>
          </div>
       </div>
    </div>

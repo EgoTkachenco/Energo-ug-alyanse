@@ -13,7 +13,7 @@
         <div class="advantages-block-list">
           <div class="advantages-block__item">
             <img
-              src="~/assets/icons/handshake-icon.svg"
+              src="~/assets/icons/work-schema/partners.svg"
               alt="Более 500 довольных клиентов"
             />
             <div>{{ $t('advantagesBlock.1') }}</div>
@@ -21,7 +21,7 @@
 
           <div class="advantages-block__item">
             <img
-              src="~/assets/icons/five-icon.svg"
+              src="~/assets/icons/advantages/clock.svg"
               alt="Работаем 5 лет на рынке"
             />
             <div>{{ $t('advantagesBlock.2') }}</div>
@@ -29,7 +29,7 @@
 
           <div class="advantages-block__item">
             <img
-              src="~/assets/icons/delivery-truck-icon.svg"
+              src="~/assets/icons/advantages/car.svg"
               alt="Оперативный выезд и просчет"
             />
             <div>{{ $t('advantagesBlock.3') }}</div>
@@ -37,7 +37,7 @@
 
           <div class="advantages-block__item">
             <img
-              src="~/assets/icons/goal-icon.svg"
+              src="~/assets/icons/advantages/strategy.svg"
               alt="Опытный и обученный персонал"
             />
             <div>{{ $t('advantagesBlock.4') }}</div>
@@ -45,7 +45,7 @@
 
           <div class="advantages-block__item">
             <img
-              src="~/assets/icons/guarantee-icon.svg"
+              src="~/assets/icons/advantages/shield.svg"
               alt="Гарантия на выполненные работы"
             />
             <div>{{ $t('advantagesBlock.5') }}</div>
@@ -53,7 +53,7 @@
 
           <div class="advantages-block__item">
             <img
-              src="~/assets/icons/official-documents-icon.svg"
+              src="~/assets/icons/advantages/document.svg"
               alt="Наличие разрешительной документации"
             />
             <div>{{ $t('advantagesBlock.6') }}</div>
@@ -92,8 +92,7 @@
     margin-bottom: $s-3;
     img {
       margin-right: $s-1;
-      max-width: 80px;
-      max-height: 80px;
+      width: 42px;
     }
 
     @media (max-width: $sm) {
