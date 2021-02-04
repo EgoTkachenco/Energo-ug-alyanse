@@ -121,7 +121,7 @@ export default {
         this.$nextTick(() => {
           this.activeObj = temp === 4 ? 0 : temp + 1;
         })
-      }, 500)
+      }, 500);
     }, 2500);
   },
   computed: {
