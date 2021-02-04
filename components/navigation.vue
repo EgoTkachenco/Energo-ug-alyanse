@@ -125,7 +125,7 @@ export default {
     ],
     categories: [],
     
-    isDropdownActive: true,
+    isDropdownActive: false,
     showMobileMenu: false,
     collapseTimeout: null
   }),

@@ -8,26 +8,17 @@
         <h1 class="animate__animated animate__fadeIn">
           {{ $t(`jobs.${jobId}.name`) }}
         </h1>
-        <div class="page-header-job__subtitle mt-5 animate__animated animate__fadeIn animate__delay-1s" 
+        <div class="page-header-job__subtitle mt-2 mt-md-5 animate__animated animate__fadeIn animate__delay-1s" 
           v-html="$t(`jobs.${jobId}.subtitle`)">
         </div>
         <div v-if="jobId === 'montazh-vnutr-elektrosetei'" class="header-block-list">
-          <div class="header-block-list__item" @click="toForm">
-            {{ $t(`jobs.${jobId}.blocks.0`) }}
+          <div class="header-block-list__item" 
+            v-for="i in [0, 1, 2, 3, 4]" 
+            :key="i"
+            :style="{transform: `rotateY(${activeObj === i ? '0' : '90deg'})`}"
+            @click="toForm">
+            {{ $t(`jobs.${jobId}.blocks.${i}`) }}
           </div>
-          <div class="header-block-list__item" @click="toForm">
-            {{ $t(`jobs.${jobId}.blocks.1`) }}
-          </div>
-          <div class="header-block-list__item" @click="toForm">
-            {{ $t(`jobs.${jobId}.blocks.2`) }}
-          </div>
-          <div class="header-block-list__item" @click="toForm">
-            {{ $t(`jobs.${jobId}.blocks.3`) }}
-          </div>
-          <div class="header-block-list__item" @click="toForm">
-            {{ $t(`jobs.${jobId}.blocks.4`) }}
-          </div>
-          
         </div>
         <button @click="toForm" class="page-header-job__btn animate__animated animate__fadeIn animate__delay-1s">{{ $t('actionTitle') }}</button>
       </div>
@@ -106,6 +97,9 @@ export default {
       ],
     }
   },
+  data: () => ({
+    activeObj: 0
+  }),
   components: {
     WorkSchema,
     WhyWe,
@@ -118,6 +112,17 @@ export default {
     toForm() {
       window.scrollBy(0, window.screen.availHeight - 31 - window.scrollY);
     }
+  },
+  mounted() {
+    setInterval(async () => {
+      let temp = this.activeObj;
+      this.activeObj = null; 
+      setTimeout(() => {
+        this.$nextTick(() => {
+          this.activeObj = temp === 4 ? 0 : temp + 1;
+        })
+      }, 500)
+    }, 2500);
   },
   computed: {
     images() {
@@ -271,21 +276,38 @@ export default {
 }
 .header-block-list {
   display: flex;
-  justify-content: space-around;
-  margin: 32px 0 64px;
-  &__item {
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    border: 2px solid #6386ca;
-    background: $c-light-blue;
-    cursor: pointer;
-    // background: linear-gradient(90deg, #8cc5f1 0%, #6386ca 0%, #8cc5f1 100%);
-    color: $c-white;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+  height: 50px;
 
+  &__item {
+    position: absolute;
+    color: $c-white;
     max-width: 250px;
+    width: 250px;
+    padding: 15px 0; 
+    transition: all 0.5s ease;
+    height: 50px;
+
+
+    &.active{
+      display: block;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      transform: skew(150deg);
+      z-index: -1;
+    }
+
+    
 
     &:hover {
       background: linear-gradient(-45deg, rgba(99,134,202,1),  rgba(140,197,241,1),  rgba(99,134,202,1), #23649a);

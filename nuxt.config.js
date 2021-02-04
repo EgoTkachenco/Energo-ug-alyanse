@@ -38,19 +38,16 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    '@nuxtjs/google-analytics'
   ],
+  googleAnalytics: {
+    // Options
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    ['nuxt-mail', {
-        smtp: {
-          host: "mail.adm.tools",
-          port: 25,
-        },
-      },
-    ],
     '@nuxtjs/style-resources',
     ['nuxt-i18n', {
       // detectBrowserLanguage: {

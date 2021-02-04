@@ -15,7 +15,7 @@
         ></iframe>
       </div>
       <div
-        class="col-10 col-md-6 order-1 order-md-2 p-5 d-flex flex-column justify-content-center"
+        class="col-12 col-md-6 order-1 order-md-2 p-5 d-flex flex-column justify-content-center"
       >
         <form @submit.prevent.stop="handleForm()" v-if="!isSubmited">
           <em>{{ $t('formBlock.questions')}}</em>
