@@ -55,7 +55,7 @@
 
 <script>
 import{ init, send } from 'emailjs-com';
-init("user_RXzx7vL8DTPW5Li2pzQGI");
+init("user_BC8sFzvS93WLgtY831jgv");
 export default {
   data: () => ({
       isSubmited: false,
@@ -79,7 +79,6 @@ export default {
         email: '-- --- --',
         time: new Date()
       }
-      // console.log(this.$fire)
       this.$fire.firestore.collection("feedbacks").add(form)
         .then(() => {
           this.isSubmited = true;
@@ -91,7 +90,7 @@ export default {
       
     },
     sendEmail(form) {
-      send('service_g6enitd', 'template_ud3nbuj', {from: 'SITE', html: `Name: ${form.name}, phone: ${form.phone}`}, 'user_RXzx7vL8DTPW5Li2pzQGI');
+      send('service_hp5amri', 'template_invrukj', {from: 'SITE', html: `Name: ${form.name}, phone: ${form.phone}`}, 'user_BC8sFzvS93WLgtY831jgv');
     }
   },
 }

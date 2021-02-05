@@ -56,7 +56,7 @@
           <h2 class="block-title mb-5">{{ $t('recomendations.title') }}</h2>
         </div>
 
-        <div class="col-6 col-md-3 mb-3" v-for="(r, i) in job.recomendations" :key="i">
+        <div class="col-12 col-sm-6 col-md-3 mb-3" v-for="(r, i) in job.recomendations" :key="i">
           <nuxt-link :to="localePath(r.url)" class="d-flex flex-column text-center recomendation-link">
             <img
               :src="require(`~/assets/images/jobs/${r.image}`)"
@@ -110,7 +110,8 @@ export default {
   },
   methods: {
     toForm() {
-      window.scrollBy(0, window.screen.availHeight - 31 - window.scrollY);
+      let a = document.getElementById('jobform');
+      window.scrollTo(0, a.offsetTop - 62);
     }
   },
   mounted() {
@@ -121,7 +122,7 @@ export default {
         this.$nextTick(() => {
           this.activeObj = temp === 4 ? 0 : temp + 1;
         })
-      }, 500);
+      }, 500)
     }, 2500);
   },
   computed: {
@@ -145,7 +146,7 @@ export default {
 .page-header-job {
   position: relative;
   height: 100vh;
-  min-height: 650px;
+  // min-height: 650px;
   max-height: 1650px;
   padding: 180px 10% 150px;
   display: flex;
@@ -214,7 +215,7 @@ export default {
 
     background: linear-gradient(-45deg, rgba(99,134,202,1),  rgba(140,197,241,1),  rgba(99,134,202,1), #23649a);
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 5s ease infinite;
 
     @keyframes gradient {
       0% {
@@ -286,49 +287,57 @@ export default {
     color: $c-white;
     max-width: 250px;
     width: 250px;
-    padding: 15px 0; 
-    transition: all 0.5s ease;
+    // padding: 15px 0; 
+    height: 25px;
+    display: flex;
+    border-radius: 10px;
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
     height: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #fff;
 
 
     &.active{
       display: block;
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      transform: skew(150deg);
-      z-index: -1;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background-color: rgba(0, 0, 0, 0.6);
+    //   transform: skew(150deg);
+    //   z-index: -1;
+    // }
 
     
 
-    &:hover {
-      background: linear-gradient(-45deg, rgba(99,134,202,1),  rgba(140,197,241,1),  rgba(99,134,202,1), #23649a);
-      background-size: 400% 400%;
-      animation: gradient 3s ease infinite;
+    // &:hover {
+    //   background: linear-gradient(-45deg, rgba(99,134,202,1),  rgba(140,197,241,1),  rgba(99,134,202,1), #23649a);
+    //   background-size: 400% 400%;
+    //   animation: gradient 3s ease infinite;
 
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-          transform: scale(1, 1);
-        }
-        50% {
-          background-position: 100% 50%;
-          transform: scale(1.1, 1.1);
-        }
-        100% {
-          background-position: 0% 50%;
-          transform: scale(1, 1);
-        }
-      }
-    }
+    //   @keyframes gradient {
+    //     0% {
+    //       background-position: 0% 50%;
+    //       transform: scale(1, 1);
+    //     }
+    //     50% {
+    //       background-position: 100% 50%;
+    //       transform: scale(1.1, 1.1);
+    //     }
+    //     100% {
+    //       background-position: 0% 50%;
+    //       transform: scale(1, 1);
+    //     }
+    //   }
+    // }
 
   }
 }

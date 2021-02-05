@@ -88,9 +88,6 @@ export default {
     FeedbackForm,
     Advantages,
   },
-  mounted() {
-    console.log(this.$store.state)
-  },
 }
 </script>
 

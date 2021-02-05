@@ -12,7 +12,7 @@
       <div class="col-12 col-sm-10 col-md-7 py-4 text-white d-flex flex-column">
         <h2 class="block-title">{{ $t('whywe.title') }}</h2>
         <div class="items-wrapper">
-          <div class="d-flex align-items-center mt-3 mx-5">
+          <div class="d-flex align-items-center mt-3 mx-2 mx-md-5">
             <img
               src="~/assets/icons/work-schema/electricity.svg"
               height="50"
@@ -23,7 +23,7 @@
               документів</span
             >
           </div>
-          <div class="d-flex align-items-center mt-3 mx-5">
+          <div class="d-flex align-items-center mt-3 mx-2 mx-md-5">
             <img
               src="~/assets/icons/work-schema/ammeter.svg"
               class="ms-2"
@@ -35,7 +35,7 @@
               найефективніші і раціональні рішення</span
             >
           </div>
-          <div class="d-flex align-items-center mt-3 mx-5">
+          <div class="d-flex align-items-center mt-3 mx-2 mx-md-5">
             <img
               src="~/assets/icons/work-schema/worker.svg"
               class="ms-2"

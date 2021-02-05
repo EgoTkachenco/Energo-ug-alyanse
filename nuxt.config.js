@@ -10,7 +10,18 @@ export default {
       { hid: 'description', name: 'description', content: 'Meta description' }
     ],
     scripts: [
-      { hid: 'smtp', src: "//smtpjs.com/v3/smtp.js", defer: true}
+      { hid: 'smtp', src: "//smtpjs.com/v3/smtp.js", defer: true },
+      {
+        hid: 'call-tracking', innerHTML: `
+          (function(d, w, s) {
+          var widgetHash = 'tuzgqcwmt7mvcyusstef', ctw = d.createElement(s); ctw.type = 'text/javascript'; ctw.async = true;
+          ctw.src = '//widgets.binotel.com/calltracking/widgets/'+ widgetHash +'.js';
+          var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(ctw, sn);
+          })(document, window, 'script');
+        `,
+        type: 'text/javascript',
+        charset: 'utf-8'
+      }
     ],
     link: [
       { rel: 'icon', sizes: '32x32', type: 'image/png', href: '/favicon.png' },
@@ -19,11 +30,11 @@ export default {
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap", },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap", },
       { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", },
-      { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"}
-    ], 
-    
-  }, 
-  
+      { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" }
+    ],
+
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '~/assets/scss/style.scss'
@@ -41,7 +52,7 @@ export default {
     '@nuxtjs/google-analytics'
   ],
   googleAnalytics: {
-    // Options
+    id: 'UA-135683740-1'
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -82,21 +93,21 @@ export default {
       defaultImage: '/default.gif',
     }],
     [
-    '@nuxtjs/firebase',
-    {
-      config: {
-        apiKey: "AIzaSyC-Df_IAuGM1oe2VFO8dL3uqGCjcq5Kiu4",
-        authDomain: "energougalyance.firebaseapp.com",
-        projectId: "energougalyance",
-        storageBucket: "energougalyance.appspot.com",
-        messagingSenderId: "585158069155",
-        appId: "1:585158069155:web:bdc340fbf1e004530e6816",
-        databaseURL: ""
-      },
-      services: {
-        firestore: true
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyC-Df_IAuGM1oe2VFO8dL3uqGCjcq5Kiu4",
+          authDomain: "energougalyance.firebaseapp.com",
+          projectId: "energougalyance",
+          storageBucket: "energougalyance.appspot.com",
+          messagingSenderId: "585158069155",
+          appId: "1:585158069155:web:bdc340fbf1e004530e6816",
+          databaseURL: ""
+        },
+        services: {
+          firestore: true
+        }
       }
-    }
     ]
   ],
 

@@ -4,7 +4,7 @@
       <div class="col-12">
         <h2 class="block-title mb-5">{{ $t('schemas.title') }}</h2>
       </div>
-      <div class="col-4 col-md schema-item">
+      <div class="col-6 col-md-4 col-md schema-item">
         <img
           src="~/assets/icons/work-schema/customer-support.svg"
           :alt="$t('schemas.support')" />
@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <div class="col-4 col-md schema-item">
+      <div class="col-6 col-md-4 col-md schema-item">
         <img
           src="~/assets/icons/work-schema/car.svg"
           :alt="$t('schemas.car')"
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="col-4 col-md schema-item">
+      <div class="col-6 col-md-4 col-md schema-item">
         <img
           src="~/assets/icons/work-schema/contract.svg"
           :alt="$t('schemas.contract')"
@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="col-4 col-md schema-item">
+      <div class="col-6 col-md-4 col-md schema-item">
         <img
           src="~/assets/icons/work-schema/power.svg"
           :alt="$t('schemas.work')"
@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <div class="col-4 col-md schema-item">
+      <div class="col-6 col-md-4 col-md schema-item">
         <img
           src="~/assets/icons/work-schema/deal.svg"
             :alt="$t('schemas.finish')"

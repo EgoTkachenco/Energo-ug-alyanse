@@ -32,7 +32,7 @@
         <div>{{ $t('reliability.operativnost_description') }}</div>
       </div>
 
-      <div class="col-6 col-md-4 mb-5 text-center mt-3">
+      <div class="col-6 col-md-4 mb-5 text-center mt-md-3">
         <img src="~/assets/icons/safety/work-team.svg" height="57" alt="" />
 
         <h3>{{ $t('reliability.dovira') }}</h3>
@@ -40,7 +40,7 @@
         <div>{{ $t('reliability.dovira_description') }}</div>
       </div>
 
-      <div class="col-6 col-md-4 mb-5 text-center mt-3">
+      <div class="col-6 col-md-4 mb-5 text-center mt-md-3">
         <img src="~/assets/icons/safety/account.svg" height="57" alt="" />
 
         <h3>{{ $t('reliability.guarantee') }}</h3>
@@ -48,7 +48,7 @@
         <div>{{ $t('reliability.guarantee_description') }}</div>
       </div>
 
-      <div class="col-6 col-md-4 mb-5 text-center mt-3">
+      <div class="col-6 col-md-4 mb-5 text-center mt-md-3">
         <img src="~/assets/icons/safety/24-hours.svg" height="57" alt="" />
 
         <h3>{{ $t('reliability.time') }}</h3>
