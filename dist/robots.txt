@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://energougalyans.com.ua/sitemap.xml
