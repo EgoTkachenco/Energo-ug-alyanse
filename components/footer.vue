@@ -5,9 +5,9 @@
                 {{ $t('footer.work-time') }}
                 <br>
                 <br>
-                <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
+                <a class="binct-phone-number-1" :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
                 <br>
-                <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
+                <a class="binct-phone-number-2" :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
                 <br>
                 <br>
                 <nuxt-link to="/privacy-policy"><b><em>{{ $t('footer.privacy-policy') }}</em></b></nuxt-link>
@@ -32,12 +32,32 @@
     </div>
 </template>
 
+<script>
+export default {
+    mounted() {
+        if(process.client) {
+            (function(d, w, s) {
+                var widgetHash = 'tuzgqcwmt7mvcyusstef', ctw = d.createElement(s); ctw.type = 'text/javascript'; ctw.async = true;
+                ctw.src = '//widgets.binotel.com/calltracking/widgets/'+ widgetHash +'.js';
+                var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(ctw, sn);
+            })(document, window, 'script');
+
+            (function(d, w, s) {
+                var widgetHash = '1lv6dsff6yp29azinkqj', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
+                gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
+                var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
+            })(document, window, 'script');
+        }
+    }
+}
+</script>
+
 <style lang="scss" scoped>
 footer.footer {
     background-color: $c-dark-grey;
     color: #fff;
-    padding-top: $s-2;
-    padding-bottom: $s-2;
+    padding-top: $s-5;
+    padding-bottom: $s-5;
     line-height: 150%;
     font-size: $t-caption;
 

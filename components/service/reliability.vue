@@ -58,3 +58,9 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.col-6 h3 { 
+  margin: 1.5rem 0 1rem;
+}
+</style>

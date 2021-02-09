@@ -5,8 +5,8 @@
             <h2 class="block-title mb-5">{{ $t('pages.contacts.title') }}</h2>
         </div>
         <div class="col-8 col-md-5 text-center text-md-start">
-            <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a> <br>
-            <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a> <br>
+            <a class="binct-phone-number-1" :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a> <br>
+            <a class="binct-phone-number-2" :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a> <br>
         </div>
         <div class="col-8 col-md-5 text-center text-md-end">
             <a href="mailto:energougalyans@ukr.net">energougalyans@ukr.net</a>

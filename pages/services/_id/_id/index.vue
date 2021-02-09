@@ -14,8 +14,8 @@
         <div v-if="jobId === 'montazh-vnutr-elektrosetei'" class="header-block-list">
           <div class="header-block-list__item" 
             v-for="i in [0, 1, 2, 3, 4]" 
-            :key="i"
-            :style="{transform: `rotateY(${activeObj === i ? '0' : '90deg'})`}"
+            :key="i + jobId"
+            :class="{'active': activeObj === i}"
             @click="toForm">
             {{ $t(`jobs.${jobId}.blocks.${i}`) }}
           </div>
@@ -35,7 +35,7 @@
         <div class="col-12 col-md-6 d-flex">
           <div class="d-flex flex-column m-auto justify-content-center" style="max-height: 500px">
             <img v-for="img in images"
-              :key="img" 
+              :key="img + jobId" 
               class="job-illustrations"
               :src="require(`~/assets/images/jobs/${img}`)" 
               :alt="$t(`jobs.${jobId}.name`)" />
@@ -56,11 +56,12 @@
           <h2 class="block-title mb-5">{{ $t('recomendations.title') }}</h2>
         </div>
 
-        <div class="col-12 col-sm-6 col-md-3 mb-3" v-for="(r, i) in job.recomendations" :key="i">
+        <div class="col-12 col-sm-6 col-md-3 mb-3" v-for="(r, i) in job.recomendations" :key="i + jobId">
           <nuxt-link :to="localePath(r.url)" class="d-flex flex-column text-center recomendation-link">
             <img
               :src="require(`~/assets/images/jobs/${r.image}`)"
               :alt="$t(r.title)"
+              class="mx-auto"
             />
 
             <h5>{{ $t(r.title) }}</h5>
@@ -111,7 +112,7 @@ export default {
   methods: {
     toForm() {
       let a = document.getElementById('jobform');
-      window.scrollTo(0, a.offsetTop - 62);
+      window.scrollTo(0, a.offsetTop - 62 - 56);
     }
   },
   mounted() {
@@ -154,6 +155,7 @@ export default {
   color: $c-white;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  min-height: 750px;
 
   @media (max-width: 800px) {
     padding: 120px 2% 150px;
@@ -234,6 +236,7 @@ export default {
 
     @media (max-width: 800px) {
       max-width: 100%;
+      margin: 3rem auto;
     }
   }
 }
@@ -262,7 +265,7 @@ export default {
     transition: 0.5s all ease;
   }
   h5 {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
   &:hover {
     color: $c-blue;
@@ -280,65 +283,28 @@ export default {
   justify-content: center;
   margin-top: 2rem;
   position: relative;
-  height: 50px;
 
   &__item {
     position: absolute;
-    color: $c-white;
-    max-width: 250px;
-    width: 250px;
-    // padding: 15px 0; 
-    height: 25px;
+    max-width: 350px;
+    width: 350px;
+    color: transparent;
     display: flex;
-    border-radius: 10px;
     font-size: 1.5em;
     justify-content: center;
     align-items: center;
-    transition: all 0.5s ease-in-out;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 1px solid #fff;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+    line-height: 120%;
 
-
-    &.active{
-      display: block;
+    @media (max-width: $md) {
+      // font-size: 2.5em;
     }
 
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 100%;
-    //   background-color: rgba(0, 0, 0, 0.6);
-    //   transform: skew(150deg);
-    //   z-index: -1;
-    // }
-
-    
-
-    // &:hover {
-    //   background: linear-gradient(-45deg, rgba(99,134,202,1),  rgba(140,197,241,1),  rgba(99,134,202,1), #23649a);
-    //   background-size: 400% 400%;
-    //   animation: gradient 3s ease infinite;
-
-    //   @keyframes gradient {
-    //     0% {
-    //       background-position: 0% 50%;
-    //       transform: scale(1, 1);
-    //     }
-    //     50% {
-    //       background-position: 100% 50%;
-    //       transform: scale(1.1, 1.1);
-    //     }
-    //     100% {
-    //       background-position: 0% 50%;
-    //       transform: scale(1, 1);
-    //     }
-    //   }
-    // }
-
+    &.active {
+      opacity: 1;
+      color: $c-white;
+    }
   }
 }
 </style>

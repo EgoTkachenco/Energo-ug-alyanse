@@ -10,6 +10,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/firebase": "^7.4.1",
+    "@nuxtjs/gtm": "^2.4.0",
+    "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.6.5",
     "emailjs-com": "^2.6.4",
     "firebase": "^8.2.5",

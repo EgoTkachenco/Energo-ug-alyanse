@@ -18,10 +18,7 @@
               height="50"
               alt=""
             />
-            <span class="ms-3"
-              >Розробляємо проекти відповідно до вимог діючих нормативних
-              документів</span
-            >
+            <span class="ms-3">{{ $t('whywe.text_1') }}</span>
           </div>
           <div class="d-flex align-items-center mt-3 mx-2 mx-md-5">
             <img
@@ -30,10 +27,7 @@
               height="50"
               alt=""
             />
-            <span class="ms-3"
-              >Індивідуально підходимо до кожного проекту, і обираємо
-              найефективніші і раціональні рішення</span
-            >
+            <span class="ms-3">{{ $t('whywe.text_2') }}</span>
           </div>
           <div class="d-flex align-items-center mt-3 mx-2 mx-md-5">
             <img
@@ -42,9 +36,7 @@
               height="50"
               alt=""
             />
-            <span class="ms-3"
-              >Погоджуємо проектні рішення з відповідними органами</span
-            >
+            <span class="ms-3">{{ $t('whywe.text_3') }}</span>
           </div>
         </div>
       </div>
@@ -73,6 +65,12 @@ export default {
     flex: 1 1;
     flex-direction: column;
     justify-content: center;
+  }
+
+  @media (max-width: $md) {
+    h2 { 
+      font-size: 1.5rem;
+    }
   }
 }
 </style>

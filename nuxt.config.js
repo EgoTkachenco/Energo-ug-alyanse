@@ -9,20 +9,22 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Meta description' }
     ],
-    scripts: [
-      { hid: 'smtp', src: "//smtpjs.com/v3/smtp.js", defer: true },
-      {
-        hid: 'call-tracking', innerHTML: `
-          (function(d, w, s) {
-          var widgetHash = 'tuzgqcwmt7mvcyusstef', ctw = d.createElement(s); ctw.type = 'text/javascript'; ctw.async = true;
-          ctw.src = '//widgets.binotel.com/calltracking/widgets/'+ widgetHash +'.js';
-          var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(ctw, sn);
-          })(document, window, 'script');
-        `,
-        type: 'text/javascript',
-        charset: 'utf-8'
-      }
-    ],
+    // scripts: [
+    //   {
+    //     hid: 'call-tracking',
+    //     defer: true,
+    //     innerHTML: `
+    //       console.log(123);
+    //       (function(d, w, s) {
+    //       var widgetHash = 'tuzgqcwmt7mvcyusstef', ctw = d.createElement(s); ctw.type = 'text/javascript'; ctw.async = true;
+    //       ctw.src = '//widgets.binotel.com/calltracking/widgets/'+ widgetHash +'.js';
+    //       var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(ctw, sn);
+    //       })(document, window, 'script');
+    //     `,
+    //     type: 'text/javascript',
+    //     charset: 'utf-8'
+    //   }
+    // ],
     link: [
       { rel: 'icon', sizes: '32x32', type: 'image/png', href: '/favicon.png' },
       { rel: 'icon', sizes: '192x192', type: 'image/png', href: '/favicon.png' },
@@ -34,39 +36,52 @@ export default {
     ],
 
   },
-
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '~/assets/scss/style.scss'
   ],
-
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
-
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
-
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    '@nuxtjs/google-analytics'
   ],
-  googleAnalytics: {
-    id: 'UA-135683740-1'
-  },
+  gtm: {
+    debug: false,
 
+    id: 'GTM-P6KNNPQ',
+    layer: 'dataLayer',
+    variables: {},
+
+    pageTracking: true,
+    pageViewEventName: 'nuxtRoute',
+
+    autoInit: true,
+    respectDoNotTrack: true,
+
+    scriptId: 'gtm-script',
+    scriptDefer: true,
+    scriptURL: 'https://www.googletagmanager.com/gtm.js',
+    crossOrigin: false,
+
+    noscript: true,
+    noscriptId: 'gtm-noscript',
+    noscriptURL: 'https://www.googletagmanager.com/ns.html'
+  },
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     ['nuxt-i18n', {
-      // detectBrowserLanguage: {
-      //   useCookie: true,
-      //   cookieKey: 'i18n_redirected',
-      //   alwaysRedirect: false,
-      //   fallbackLocale: 'en'
-      // },
+      detectBrowserLanguage: {
+        useCookie: true,
+        cookieKey: 'i18n_redirected',
+        alwaysRedirect: false,
+        fallbackLocale: 'uk'
+      },
       locales: [
         {
           name: 'Ukrainian',
@@ -86,12 +101,6 @@ export default {
       defaultLocale: 'uk',
       seo: false
     }],
-
-    ['nuxt-lazy-load', {
-      // Your options
-      directiveOnly: true,
-      defaultImage: '/default.gif',
-    }],
     [
       '@nuxtjs/firebase',
       {
@@ -108,9 +117,9 @@ export default {
           firestore: true
         }
       }
-    ]
+    ],
+    '@nuxtjs/gtm'
   ],
-
   styleResources: {
     scss: [
       '~/assets/scss/settings/global.scss',

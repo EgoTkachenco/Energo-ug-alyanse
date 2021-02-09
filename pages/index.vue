@@ -8,7 +8,7 @@
          autoplay="autoplay" 
          loop="loop" 
          muted="muted" 
-         poster="~/assets/images/mobile-back.jpg"
+         poster="~/assets/images/poster.png"
          width="100%" 
          height="500px">
             Sorry, your browser doesn't support embedded videos,

@@ -7,8 +7,8 @@
     <div class="navigation-top layout">
       <div class="navigation-top__item phones">
         <div class="navigation-top__item__bg"></div>
-        <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
-        <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
+        <a class="binct-phone-number-1" :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
+        <a class="binct-phone-number-2" :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
       </div>
       <div class="navigation-top__item">
         <div class="navigation-top__item__bg"></div>
@@ -93,14 +93,19 @@
         <a target="_blank" href="/catalog.pdf"  class="navigation-link download">
           {{ $t('navigation.catalog') }}
         </a>
-         <div class="navigation__mob-phones">
-          <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
-          <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
+        <div class="navigation__mob-lang">
+          <nuxt-link
+          :title="($i18n.locale === 'uk' ? 'ru' : 'uk') + ' ' + $t('site-version')"
+          :to="switchLocalePath($i18n.locale === 'uk' ? 'ru' : 'uk')">{{ $i18n.locale }}</nuxt-link>
+        </div>
+        <div class="navigation__mob-phones">
+          <a class="binct-phone-number-1" :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
+          <a class="binct-phone-number-2" :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
         </div>
       </div>
       <div class="navigation__phones">
-        <a :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
-        <a :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
+        <a class="binct-phone-number-1" :href="`tel:${$store.state.contacts.number_1_call}`">{{ $store.state.contacts.number_1 }}</a>
+        <a class="binct-phone-number-2" :href="`tel:${$store.state.contacts.number_2_call}`">{{ $store.state.contacts.number_2 }}</a>
       </div>
       <button 
         class="navigation-mobile-btn" 
@@ -247,7 +252,24 @@ export default {
   }
 
   @media (max-width: $md) {
-    display: none;
+    padding: 0 !important;
+    .navigation-top__item {
+      display: none;
+
+      &.phones {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        background: #000;
+        margin-left: 0;
+
+        .navigation-top__item__bg {
+          display: none;
+        }
+      }
+    }
   }
 }
 .navigation__btn-top {
@@ -298,6 +320,9 @@ export default {
   }
 
   &-mobile-btn {
+    display: none;
+  }
+  &__mob-lang {
     display: none;
   }
   &__mob-phones {
@@ -365,8 +390,7 @@ export default {
         position: absolute;
         top: 100%;
         left: 0;
-        height: 100vh;
-        max-height: calc(100vh - 62px);
+        height: calc(100vh - 62px - 52px);
         overflow: auto;
         width: 100%;
         background: $c-dark-grey;
@@ -383,10 +407,18 @@ export default {
     }
     &__mob-phones{
       display: flex; 
-      margin-top: auto;
       padding-bottom: 16px;
       justify-content: space-between;
       a {
+        color: $c-white;
+      }
+    }
+    &__mob-lang {
+      display: flex;
+      margin: auto 0 0 0;
+      padding-bottom: 16px;
+      a {
+        text-transform: uppercase;
         color: $c-white;
       }
     }
@@ -417,12 +449,17 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 200002 !important;
+  min-width: 360px;
+  max-width: 1920px;
 
   &.hide-top {
     .navigation-top {
-      opacity: 0;
       margin-top: -80px;
+
+      @media (max-width: $md) {
+        margin-top: 0;
+      }
     }
 
     .navigation {
@@ -433,8 +470,10 @@ export default {
       }
     }
     .navigation__btn-top {
-    opacity: 1;
-  }
+      opacity: 1;
+    }
+
+    
   }
   &.background {
     background: url('~assets/images/back.png') center;
