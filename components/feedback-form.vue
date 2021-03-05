@@ -54,8 +54,6 @@
 </template>
 
 <script>
-import{ init, send } from 'emailjs-com';
-init("user_BC8sFzvS93WLgtY831jgv");
 export default {
   data: () => ({
       isSubmited: false,
@@ -82,15 +80,20 @@ export default {
       this.$fire.firestore.collection("feedbacks").add(form)
         .then(() => {
           this.isSubmited = true;
-          this.sendEmail(form);
+          const message = `Новая заявка | Страница - Главная | Имя - ${form.name} | Номер - ${form.phone}`;
+          this.sendEmail(message);
         })
         .catch((error) => {
           console.error("Error adding document: ", error);
         });
       
     },
-    sendEmail(form) {
-      send('service_hp5amri', 'template_invrukj', {from: 'SITE', html: `Name: ${form.name}, phone: ${form.phone}`}, 'user_BC8sFzvS93WLgtY831jgv');
+    sendEmail(message) {
+      // Fedya chat id - 119126345
+      // My chat id - 367270118
+      fetch(`https://api.telegram.org/bot1688525054:AAHNVTpr3_2n-_cubtAVy0EH7EgEuiDp8oA/sendMessage?chat_id=119126345&text=${message}`, {
+        method: 'POST',
+      })
     }
   },
 }

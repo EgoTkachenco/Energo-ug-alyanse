@@ -283,11 +283,12 @@ export default {
   justify-content: center;
   margin-top: 2rem;
   position: relative;
+  height: 2rem;
 
   &__item {
     position: absolute;
-    max-width: 350px;
-    width: 350px;
+    max-width: 360px;
+    width: 360px;
     color: transparent;
     display: flex;
     font-size: 1.5em;

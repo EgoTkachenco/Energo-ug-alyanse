@@ -43,6 +43,10 @@ export default {
       ],
     }
   },
+  mounted() {
+    console.log('Script Worked')
+    window.BinotelCallTracking[507889].replacePhoneNumbersOnDynamicContent();
+  }
 }
 </script>
 

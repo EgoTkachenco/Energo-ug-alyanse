@@ -91,14 +91,19 @@ export default {
         .add(form)
         .then(() => {
           this.isSubmited = true;
-          this.sendEmail(form);
+          const message = `Новая заявка | Страница - ${form.page} | Имя - ${form.name} | Номер - ${form.phone} | Email - ${form.email}`
+          this.sendEmail(message);
         })
         .catch((error) => {
           console.error('Error adding document: ', error)
         })
     },
-    sendEmail(form) {
-      send('service_hp5amri', 'template_ud3nbuj', {from: 'SITE', html: `Name: ${form.name}, phone: ${form.phone}`}, 'user_RXzx7vL8DTPW5Li2pzQGI');
+    sendEmail(message) {
+      // Fedya chat id - 119126345
+      // My chat id - 367270118
+      fetch(`https://api.telegram.org/bot1688525054:AAHNVTpr3_2n-_cubtAVy0EH7EgEuiDp8oA/sendMessage?chat_id=119126345&text=${message}`, {
+        method: 'POST',
+      })
     }
   },
 }
