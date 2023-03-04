@@ -1,12 +1,12 @@
 const state = () => ({
   contacts: {
-    number_1: '+38(044) 221-91-89',
-    number_1_call: '0442219189',
+    number_1: '(044) 334-71-20',
+    number_1_call: '0443347120',
 
     // number_2: '+38(097) 308-18-31',
     // number_2_call: '0973081831',
-    number_2: '+38(067) 568-41-34',
-    number_2_call: '0675684134',
+    number_2: '(095) 571-10-51',
+    number_2_call: '0955711051',
 
     // email: 'energougalyans@ukr.net'
     email: 'order.eua@gmail.com',
