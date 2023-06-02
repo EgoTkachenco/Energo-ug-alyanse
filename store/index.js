@@ -637,7 +637,7 @@ const state = () => ({
 const actions = {
   async sendForm(store, data) {
     const getWebhookURL = (name, phone, email, pageURL) =>
-      `https://eua.bitrix24.ua/rest/8/r0afc2kdm3j36g9w/crm.lead.add?fields[TITLE]=Форма с сайта&fields[NAME]=${name}&fields[PHONE][0][VALUE]=${phone}&fields[EMAIL][0][VALUE]=${email}&fields[SOURCE_DESCRIPTION]=${pageURL}&fields[SOURCE_ID]=WEB`
+      `https://eua.bitrix24.ua/rest/8/eoapwbgdw3yc7pg3/crm.lead.add?fields[TITLE]=Форма с сайта&fields[NAME]=${name}&fields[PHONE][0][VALUE]=${phone}&fields[EMAIL][0][VALUE]=${email}&fields[SOURCE_DESCRIPTION]=${pageURL}&fields[SOURCE_ID]=WEB`
 
     const url = getWebhookURL(
       data.name,
